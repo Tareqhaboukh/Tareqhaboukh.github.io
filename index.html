@@ -40,6 +40,19 @@
     border: none;
     margin-right: 15px;
   }
+  pre {
+    background: #f8f8f8;
+    padding: 1em;
+    overflow-x: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  code {
+    font-family: Menlo, Consolas, monospace;
+    font-size: 0.9em;
+    color: #333;
+  }
   </style>
 </head>
 <body>
@@ -121,6 +134,96 @@
       Read my blog post on Careem's Data Breach
     </a>
   </section>
+
+  <section id="flask-app">
+    <h2>
+      Live Flask App: Project One
+      <a href="https://project-one-ofo6.onrender.com" target="_blank" rel="noopener" title="Open in new tab">
+        <img src="https://cdn-icons-png.flaticon.com/128/12690/12690013.png" alt="Open in new tab" width="20" style="vertical-align:middle; margin-left:8px;">
+      </a>
+    </h2>
+
+    <p>
+      This is a Flask-based web application I developed and deployed using Render. It demonstrates my ability to build and host a Python web app with dynamic functionality and API endpoints. 
+      You can view the source code here:
+      <a href="https://github.com/Tareqhaboukh/project_one" target="_blank" rel="noopener">project_one repository on GitHub</a>.
+    </p>
+
+    <iframe 
+      src="https://project-one-ofo6.onrender.com" 
+      width="100%" 
+      height="400" 
+      frameborder="0"
+      style="border: 1px solid #ccc; border-radius: 4px;">
+    </iframe>
+
+  <h3>API Documentation</h3>
+
+  <h4>1. Get a User by ID</h4>
+  <p><strong>Route:</strong>
+    <pre><code>GET /api/v1/users/&lt;int:id&gt;</code></pre>
+  </p>
+  <p><strong>Description:</strong> This route retrieves a specific user by their unique ID.</p>
+  <p><strong>Parameters:</strong></p>
+  
+    <code>&emsp;id</code> (int): The unique identifier for the user you want to retrieve.
+  
+
+  <p><strong>Success Response:</strong></p>
+  <pre><code>Code: 200 OK
+Content:
+[
+  {
+    "id": 1,
+    "username": "john_doe",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john@example.com",
+    "date_created": "2024-01-01T12:00:00Z"
+  }
+]</code></pre>
+
+  <p><strong>Error Response:</strong></p>
+  <pre><code>Code: 404 Not Found
+Content:
+{
+  "message": "User not found"
+}
+</code></pre>
+
+  <h4>2. Get All Users</h4>
+  <p><strong>Route:</strong>
+    <pre><code>GET /api/v1/users/</code></pre>
+  </p>
+  <p><strong>Description:</strong> This route retrieves a list of all users.</p>
+  <p><strong>Parameters:</strong> None</p>
+
+  <p><strong>Success Response:</strong></p>
+  <pre><code>Code: 200 OK
+Content:
+[
+  {
+    "id": 1,
+    "username": "john_doe",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john@example.com",
+    "date_created": "2024-01-01T12:00:00Z"
+  },
+  {
+    "id": 2,
+    "username": "jane_doe",
+    "first_name": "Jane",
+    "last_name": "Doe",
+    "email": "jane@example.com",
+    "date_created": "2024-01-02T12:00:00Z"
+  }
+]
+</code></pre>
+</section>
+
+
+
   
 
 <!--   <section id="portfolio">
