@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power BI Weather Pipeline</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+    h3 {
+      text-align: left;
+      margin-top: 2em;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 1em;
+      border-radius: 6px;
+      overflow-x: auto;
+      border: 1px solid #ddd;
+      max-width: 900px;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 1em auto;
+    }
+    code {
+      font-family: Menlo, Consolas, monospace;
+      font-size: 0.9em;
+      color: #2d2d2d;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .screenshot {
+      display: block;
+      margin: 1em 0;
+      border: 1px dashed #aaa;
+      padding: 10px;
+      text-align: center;
+      font-style: italic;
+      color: #666;
+    }
+    img.screenshot {
+      max-width: 900px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 1em auto;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <h1>Power BI: Weather Data Pipeline</h1>
+  <p>This Power Query (M) script is used in Power BI to dynamically pull, clean, and organize historical weather data from Environment Canada’s open data portal.</p>
+
+  <h3>Source</h3>
+
+  <p><strong>Step 0: Define Parameters</strong><br>
+  This step defines the base URL that points to the folder containing Ontario’s daily climate CSV files on the Environment Canada data portal.</p>
+  <pre><code>BaseUrl = "https://dd.weather.gc.ca/climate/observations/daily/csv/ON/",</code></pre>
+  <img src="images/Step0.png" alt="Screenshot of Step 0 output" class="screenshot">
+  <p>
+    <a href="https://dd.weather.gc.ca/climate/observations/daily/csv/ON/" target="_blank" rel="noopener">
+      View Raw Dataset on weather.gc.ca
+    </a>
+  </p>
+
+  <p><strong>Step 1: Get HTML content and extract raw lines</strong><br>
+  Loads the HTML from the target URL, converts it into text, and splits it into individual lines for further parsing.</p>
+  <pre><code>Source = Web.BrowserContents(BaseUrl),
+ExtractedTable = Html.Table(Source, {{"Content", "BODY"}}),
+AllContent = Text.From(ExtractedTable[Content]{0}),
+FileLines = Text.Split(AllContent, "#(lf)"),</code></pre>
+  <img src="images/Step1.png" alt="Screenshot of Step 1 output" class="screenshot">
+
+  <p><strong>Step 2: Filter valid .csv climate files</strong><br>
+  Filters out only the filenames that match the expected `climate_daily_*.csv` pattern, then trims them clean for use.</p>
+  <pre><code>CsvFiles = List.Select(FileLines, each Text.Contains(_, "climate_daily_") and Text.Contains(_, ".csv")),
+TrimmedNames = List.Transform(CsvFiles, each Text.Trim(Text.BeforeDelimiter(_, ".csv") & ".csv"))</code></pre>
+  <img src="images/Step2.png" alt="Screenshot of Step 2 output" class="screenshot">
+
+  <p><strong>Step 3: Extract year and prepare structured data</strong><br>
+  Parses each file name to extract the year from its components and builds a list of records with the file name, URL, and year.</p>
+  <pre><code>ParsedData = List.Transform(TrimmedNames, each
+  let
+      Parts = Text.Split(Text.BeforeDelimiter(_, ".csv"), "_"),
+      YearPart = Parts{4},
+      YearOnly = if Text.Contains(YearPart, "-") then Text.Start(YearPart, 4) else YearPart,
+      Year = try Number.FromText(YearOnly) otherwise null
+  in
+      [FileName = _, FileUrl = BaseUrl & _, Year = Year]
+),</code></pre>
+  <img src="images/Step3.png" alt="Screenshot of Step 3 output" class="screenshot">
+
+  <p><strong>Step 4 & Final Output of Source Step</strong><br>
+  Convert the structured list of records into a Power BI table and complete the Source step by outputting the resulting table to the query chain.</p>
+  <pre><code>ResultTable = Table.FromRecords(ParsedData)
+in
+  ResultTable</code></pre>
+  <img src="images/Step4.png" alt="Screenshot of Step 4 output" class="screenshot">
+
+  <h3>Filtered Rows</h3>
+  <p>This step filters the dataset to include only records where <code>Year</code> is greater than or equal to 2025.</p>
+  <pre><code>= Table.SelectRows(Source, each [Year] &gt;= 2025)</code></pre>
+  <img src="images/FilteredRows.png" alt="Screenshot of Step Filtered Rows output" class="screenshot">
+
+  <h3>Combined</h3>
+  <p>This step loads the contents of each CSV file, promotes headers, and combines all of them into a single table.</p>
+  <pre><code>= let
+    AddCSVContent = Table.AddColumn(#"Filtered Rows", "CSVContent", each Csv.Document(
+        Web.Contents([FileUrl]), 
+        [Delimiter=",", Encoding=1252, QuoteStyle=QuoteStyle.None]
+    )),
+    PromotedHeaders = Table.TransformColumns(
+        AddCSVContent, 
+        {"CSVContent", each Table.PromoteHeaders(_, [PromoteAllScalars=true]), type table}
+    ),
+    Combined = Table.Combine(PromotedHeaders[CSVContent])
+in
+    Combined</code></pre>
+  <img src="images/Combined.png" alt="Screenshot of Step Combined output" class="screenshot">
+
+  <h3>End Results</h3>
+  <p>The final result is a fully combined and cleaned dataset, ready for analysis and visualization in Power BI. All data has been filtered, loaded, and standardized across files to ensure consistency and accuracy.</p>
+
+  <img src="images/EndResults.png" alt="Final dataset in Power BI" class="screenshot">
+
+</body>
+</html>
