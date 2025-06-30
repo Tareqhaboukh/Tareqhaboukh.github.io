@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project One - API Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3, h4 {
+      margin-top: 2em;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 1em;
+      border-radius: 6px;
+      overflow-x: auto;
+      border: 1px solid #ddd;
+    }
+    code {
+      font-family: Menlo, Consolas, monospace;
+      font-size: 0.9em;
+      color: #2d2d2d;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Project One: API Documentation</h1>
+  <p>
+    This is a Flask-based web application I developed and deployed using Render.
+    It demonstrates my ability to build and host a Python web app with dynamic functionality and API endpoints.
+    You can view the source code here:
+    <a href="https://github.com/Tareqhaboukh/project_one" target="_blank" rel="noopener">project_one repository on GitHub</a>.
+  </p>
+
+  <h3>API Documentation</h3>
+
+  <h4>1. Get a User by ID</h4>
+  <p><strong>Route:</strong></p>
+  <pre><code>GET /api/v1/users/&lt;int:id&gt;</code></pre>
+
+  <p><strong>Description:</strong> This route retrieves a specific user by their unique ID.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <p><code>&emsp;id</code> (int): The unique identifier for the user you want to retrieve.</p>
+
+  <p><strong>Success Response:</strong></p>
+  <pre><code>Code: 200 OK
+Content:
+[
+  {
+    "id": 1,
+    "username": "john_doe",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john@example.com",
+    "date_created": "2024-01-01T12:00:00Z"
+  }
+]</code></pre>
+
+  <p><strong>Error Response:</strong></p>
+  <pre><code>Code: 404 Not Found
+Content:
+{
+  "message": "User not found"
+}
+</code></pre>
+
+  <h4>2. Get All Users</h4>
+  <p><strong>Route:</strong></p>
+  <pre><code>GET /api/v1/users/</code></pre>
+
+  <p><strong>Description:</strong> This route retrieves a list of all users.</p>
+  <p><strong>Parameters:</strong> None</p>
+
+  <p><strong>Success Response:</strong></p>
+  <pre><code>Code: 200 OK
+Content:
+[
+  {
+    "id": 1,
+    "username": "john_doe",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john@example.com",
+    "date_created": "2024-01-01T12:00:00Z"
+  },
+  {
+    "id": 2,
+    "username": "jane_doe",
+    "first_name": "Jane",
+    "last_name": "Doe",
+    "email": "jane@example.com",
+    "date_created": "2024-01-02T12:00:00Z"
+  }
+]
+</code></pre>
+
+</body>
+</html>

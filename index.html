@@ -144,7 +144,7 @@
     <img src="images/pipeline_preview.png" alt="Power BI pipeline preview" style="width:100%; max-width:800px; border:1px solid #ccc; border-radius:4px;" />
   </a>
   <p>
-    <a href="pipeline.html">View the full pipeline documentation &raquo;</a>
+    <a href="pipeline.html" target="_blank" rel="noopener">View the full pipeline documentation &raquo;</a>
   </p>
   </section>
 
@@ -152,7 +152,7 @@
     <h2>
       Live Flask App: Project One
       <a href="https://project-one-ofo6.onrender.com" target="_blank" rel="noopener" title="Open in new tab">
-        <img src="https://cdn-icons-png.flaticon.com/128/12690/12690013.png" alt="Open in new tab" width="20" style="vertical-align:middle; margin-left:8px;">
+        <img src="https://cdn-icons-png.flaticon.com/128/12690/12690013.png" alt="Open in new tab" width="25" style="vertical-align:text-bottom;">
       </a>
     </h2>
 
@@ -165,92 +165,14 @@
     <iframe 
       src="https://project-one-ofo6.onrender.com" 
       width="100%" 
-      height="1000" 
+      height="800" 
       frameborder="0"
       style="border: 1px solid #ccc; border-radius: 4px;">
     </iframe>
 
-  <h3>API Documentation</h3>
-
-  <h4>1. Get a User by ID</h4>
-  <p><strong>Route:</strong>
-    <pre><code>GET /api/v1/users/&lt;int:id&gt;</code></pre>
-  </p>
-  <p><strong>Description:</strong> This route retrieves a specific user by their unique ID.</p>
-  <p><strong>Parameters:</strong></p>
-  
-    <code>&emsp;id</code> (int): The unique identifier for the user you want to retrieve.
-  
-
-  <p><strong>Success Response:</strong></p>
-  <pre><code>Code: 200 OK
-Content:
-[
-  {
-    "id": 1,
-    "username": "john_doe",
-    "first_name": "John",
-    "last_name": "Doe",
-    "email": "john@example.com",
-    "date_created": "2024-01-01T12:00:00Z"
-  }
-]</code></pre>
-
-  <p><strong>Error Response:</strong></p>
-  <pre><code>Code: 404 Not Found
-Content:
-{
-  "message": "User not found"
-}
-</code></pre>
-
-  <h4>2. Get All Users</h4>
-  <p><strong>Route:</strong>
-    <pre><code>GET /api/v1/users/</code></pre>
-  </p>
-  <p><strong>Description:</strong> This route retrieves a list of all users.</p>
-  <p><strong>Parameters:</strong> None</p>
-
-  <p><strong>Success Response:</strong></p>
-  <pre><code>Code: 200 OK
-Content:
-[
-  {
-    "id": 1,
-    "username": "john_doe",
-    "first_name": "John",
-    "last_name": "Doe",
-    "email": "john@example.com",
-    "date_created": "2024-01-01T12:00:00Z"
-  },
-  {
-    "id": 2,
-    "username": "jane_doe",
-    "first_name": "Jane",
-    "last_name": "Doe",
-    "email": "jane@example.com",
-    "date_created": "2024-01-02T12:00:00Z"
-  }
-]
-</code></pre>
-</section>
-
-
-
-  
-
-<!--   <section id="portfolio">
-    <h2>Portfolio</h2>
-    <h3>Energy Dashboard Snapshot</h3>
-    <img src="images/energy_dashboard.png" alt="Energy Dashboard Snapshot" />
-    <p>This dashboard visualizes monthly energy consumption trends and automation impact across sites.</p>
-    
-    <h3>Interactive Survey Results</h3>
-    <iframe 
-      width="800" height="600" 
-      src="https://app.powerbi.com/view?r=YOUR_POWERBI_EMBED_LINK" 
-      frameborder="0" allowfullscreen="true" title="Survey Results Dashboard"></iframe>
-  </section> -->
+    <p>
+      <a href="api.html" target="_blank" rel="noopener">View the full API documentation &raquo;</a>
+    </p>
 
   <section id="contact">
     <h2>Contact</h2>
