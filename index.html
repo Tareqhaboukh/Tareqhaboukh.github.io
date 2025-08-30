@@ -4,7 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tareq Haboukh | Resume & Portfolio</title>
+
+  <meta property="og:title" content="Tareq Haboukh | Resume & Portfolio" />
+  <meta property="og:description" content="Dynamic Business Analyst with 6+ years of experience in analytics, ETL workflows, and data visualization." />
+  <meta property="og:image" content="images/WebsiteThumbnail.png" />
+  <meta property="og:url" content="https://tareqhaboukh.github.io/" />
+  <meta property="og:type" content="website" />
+
   <style>
+    
   body {
     font-family: Arial, sans-serif;
     max-width: 800px;
@@ -12,10 +20,11 @@
     padding: 0 20px;
     line-height: 1.6;
     color: #333;
+    background-color: #fcfcfc;
   }
   header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
   h1 {
     margin-bottom: 5px;
@@ -31,12 +40,16 @@
   section {
     margin-bottom: 40px;
   }
-  a img.icon {
-    width: 30px;
-    height: 30px;
-    vertical-align: middle;
-    border: none;
-    margin-right: 15px;
+  .icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 20px;
+  }
+  .icon-container img.icon {
+  width: 40px;
+  height: 40px;
   }
   img.content-image {
     width: 100%;
@@ -46,7 +59,8 @@
     border-radius:4px;
   }
   .company-logos {
-    margin: 20px 0;
+    margin-bottom: 40px;
+    margin-top: 40px;
   }
   .company-logos img {
     max-height: 30px;
@@ -72,7 +86,7 @@
   }
   .slider-section button {
     position: absolute;
-    top: 50%;
+    top: 30%;
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
@@ -112,7 +126,7 @@
   }
 
 
-
+/* Tablet View */
   @media (max-width: 768px) {
   body {
     margin: 20px auto;
@@ -135,11 +149,15 @@
   .company-logos img {
     max-height: 24px;
   }
-
-  a img.icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
+  .icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  }
+  .icon-container img.icon {
+  width: 30px;
+  height: 30px;
   }
 
   .slider-section .prev {
@@ -156,11 +174,12 @@
     font-size: 1.5rem;
   }
 
-  iframe {
+  /* iframe {
     height: 500px;
-  }
+  } */
 }
 
+/* Phone View */
 @media (max-width: 480px) {
   h1 {
     font-size: 1.5rem;
@@ -186,36 +205,38 @@
   <header>
     <h1>Tareq Haboukh</h1>
     <p>Solving Business Challenges with Insightful Analytics & Automation</p>
-    <p>
-      <a href="mailto:tareq.haboukh@gmail.com" aria-label="Send email to Tareq Haboukh">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/732/732200.png"
-          alt="Gmail Icon"
-          class="icon"
-        />
-      </a>
-      <a href="Tareq Haboukh - Resume.pdf" download aria-label="Download Resume">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/909/909212.png"
-          alt="Download as PDF"
-          class="icon"
-        />
-      </a>
-      <a href="https://www.linkedin.com/in/tareqhaboukh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-          alt="LinkedIn Logo"
-          class="icon"
-        />
-      </a>
-      <a href="https://github.com/Tareqhaboukh" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/733/733609.png"
-          alt="GitHub Logo"
-          class="icon"
-        />
-      </a>
-    </p>
+
+    <div class="icon-container">
+        <a href="mailto:tareq.haboukh@gmail.com" aria-label="Send email to Tareq Haboukh">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/732/732200.png"
+            alt="Gmail Icon"
+            class="icon"
+          />
+        </a>
+        <a href="Tareq Haboukh - Resume.pdf" download aria-label="Download Resume">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/909/909212.png"
+            alt="Download as PDF"
+            class="icon"
+          />
+        </a>
+        <a href="https://www.linkedin.com/in/tareqhaboukh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+            alt="LinkedIn Logo"
+            class="icon"
+          />
+        </a>
+        <a href="https://github.com/Tareqhaboukh" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/733/733609.png"
+            alt="GitHub Logo"
+            class="icon"
+          />
+        </a>
+    </div>
+
   </header>
 
   <section id="about">
@@ -470,8 +491,8 @@
 
 <section id="contact" style="text-align: center; padding: 40px 20px; background-color: #e0f7fa;">
   <h2>Contact Me</h2>
-  <p>If you’d like to discuss projects, opportunities, or just say hello, feel free to reach out!</p>
-  <p>
+  <p>Thank you for visiting my portfolio. I appreciate your time and interest in my work. If you’d like to discuss projects, opportunities, or just say hello, feel free to reach out!</p>
+  <div class="icon-container">
     <a href="mailto:tareq.haboukh@gmail.com" aria-label="Send email to Tareq Haboukh">
       <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail Icon" class="icon" />
     </a>
@@ -481,7 +502,7 @@
     <a href="https://github.com/Tareqhaboukh" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
       <img src="https://cdn-icons-png.flaticon.com/512/733/733609.png" alt="GitHub Logo" class="icon" />
     </a>
-  </p>
+  </div>
 </section>
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7e718e7fbddb4cd3a633c2df3606669f"}'></script>
   <script src="js/slider.js"></script>
