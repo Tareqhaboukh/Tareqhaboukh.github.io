@@ -20,18 +20,16 @@
   h1 {
     margin-bottom: 5px;
   }
+  h2 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
   a {
     color: #007acc;
     text-decoration: none;
   }
   section {
     margin-bottom: 40px;
-  }
-  img.content-image {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ddd;
-    margin-top: 10px;
   }
   a img.icon {
     width: 30px;
@@ -40,18 +38,77 @@
     border: none;
     margin-right: 15px;
   }
-  pre {
-    background: #f8f8f8;
-    padding: 1em;
-    overflow-x: auto;
-    border: 1px solid #ccc;
+  img.content-image {
+    width: 100%;
+    max-width:800px;
+    height: auto;
+    /* border:1px solid #ccc; */
+    border-radius:4px;
+  }
+  .company-logos {
+    margin: 20px 0;
+  }
+  .company-logos img {
+    max-height: 30px;
+    width: auto;
+    object-fit: contain;
+  }
+  .slider-section {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+  }
+  .slider-container {
+    overflow: hidden;
+    width: 100%;
     border-radius: 5px;
   }
-
-  code {
-    font-family: Menlo, Consolas, monospace;
-    font-size: 0.9em;
-    color: #333;
+  .slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .slide {
+    min-width: 100%;
+  }
+  .slider-section button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slider-section .prev {
+    left: -80px;
+  }
+  .slider-section .next {
+    right: -80px;
+  }
+  .slider-dots {
+    text-align: center;
+    margin: 15px 0;
+  }
+  .slider-dots .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .slider-dots .dot.active {
+    background-color: #007acc;
   }
   </style>
 </head>
@@ -64,6 +121,13 @@
         <img
           src="https://cdn-icons-png.flaticon.com/512/732/732200.png"
           alt="Gmail Icon"
+          class="icon"
+        />
+      </a>
+      <a href="Tareq Haboukh - Resume.pdf" download aria-label="Download Resume">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/909/909212.png"
+          alt="Download as PDF"
           class="icon"
         />
       </a>
@@ -91,17 +155,6 @@
     </p>
   </section>
 
-  <section id="resume">
-    <h2>Resume Highlights</h2>
-    <p><a href="Tareq Haboukh - Resume.pdf" download>Download as PDF</a></p>
-    <ul>
-      <li>6+ years of experience in business and data analytics</li>
-      <li>Expertise in ETL pipelines and Power BI dashboards</li>
-      <li>Automated survey and energy reporting workflows</li>
-      <li>Strong collaboration with cross-functional teams</li>
-    </ul>
-  </section>
-
   <section id="why-me">
     <h2>What Makes Me Stand Out</h2>
     <p>
@@ -116,22 +169,26 @@
   </section>
 
   <section id="projects">
-    <h2>Key achievements and projects throughout my professional career</h2>
+    <h2>Key achievements and projects</h2>
 
-    <h3>EllisDon Corporation</h3>
+    <div class="company-logos">
+      <img src="images/EllisdonLogo.png" alt="EllisDon Logo" />
+    </div>
       <p><strong>Power BI Reporting Initiative:</strong> Led a Power BI initiative to build dashboards and create specific and complex reports that serve multiple sites based on their individual requirements, by gathering inputs from project agreements or directly communicating with site GMs. This enabled fast-paced, agile delivery of ad hoc reports.</p>
       <p><strong>Energy Reporting and ETL Optimization:</strong> Optimized ETL pipelines for energy reports to enable faster, autonomous data collection and integrated government weather data into reporting databases for richer context and analysis.</p>
       <p><strong>Contractors Insurance Compliance:</strong> Assessed the platform for contractors’ insurance compliance by matching raw data with D365 site visit records, uncovering inaccuracies that increased company risk. Led the transition of operations in house, improving validation accuracy, streamlining processes, and eliminating costs for contractors.</p>
       <p><strong>Survey Automation and Vendor Management:</strong> Managed the survey process and identified a new vendor after assessing multiple options to improve performance. Fully automated the process from filtering data and assigning services to distributing surveys and building a Power BI report that sends email notifications with the data ready to be shared when surveys are due.</p>
 
-    <h3>Uber (Careem Networks)</h3>
+    <div class="company-logos">
+      <img src="images/Careemlogo.png" alt="Careem Logo" /> 
+    </div>
       <p><strong>Compliance Project:</strong> Led the initial phase of the driver permit application process after Careem received its operating license. Designed workflows, managed driver data, and built databases linked to performance and quality teams to prioritize permits for high-performing drivers.</p>
       <p><strong>Scooter Delivery Launch:</strong> Analyzed scooter driver performance in Jordan, showing better delivery times and trips per hour compared to regular drivers. Worked with third parties to plan demand and helped introduce installment plans, making it easier for new drivers to join and supporting the scooter delivery launch.</p>
       <p><strong>Geo-fenced Locations:</strong> Analyzed hundreds of thousands of GPS data points to identify high-density locations and created geo-fenced pick-up points on the app, enhancing customer experience by guiding riders to optimal pick-up spots.</p>
       <p><strong>Performance Project:</strong> Developed a weekly plan addressing peak-hour demand by forming a task force of high-performing drivers and motivating them with targeted in-app messages and incentives.</p>
   </section>
 
-  <section id="blog-posts">
+  <!-- <section id="blog-posts">
     <h2>Blog Posts</h2>
     <p>
       A personal reflection on my experience working at Careem during the time of its data breach, sharing lessons on data security, internal response, and what it taught me about trust and transparency.
@@ -220,12 +277,143 @@
         Test the API on Hoppscotch
       </a>
     </p>
+  </section> -->
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Feel free to reach out to discuss projects or opportunities!</p>
-    <p>Email: <a href="mailto:tareq.haboukh@gmail.com">tareq.haboukh@gmail.com</a></p>
-  </section>
+<section id="samples-of-work">
+  <h2>Samples of My Work</h2>
+
+  <div class="slider-dots"></div>
+
+  <div class="slider-section">
+    <button class="prev">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M15 6l-6 6 6 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="slider-container">
+      <div class="slider-track">
+
+        <!-- Flask App -->
+        <div class="slide">
+          <h3>
+            Live Flask App: Project One
+            <a href="https://project-one-ofo6.onrender.com" target="_blank" rel="noopener" title="Open in new tab">
+              <img src="https://cdn-icons-png.flaticon.com/128/12690/12690013.png" alt="Open in new tab" width="25" style="vertical-align:text-bottom;">
+            </a>
+          </h3>
+
+          <p>
+            This is a Flask-based web application I developed and deployed using Render. It demonstrates my ability to build and host a Python web app with dynamic functionality and API endpoints. 
+            View the source code on <a href="https://github.com/Tareqhaboukh/project_one" target="_blank" rel="noopener">GitHub</a>.
+            <strong>Create a dummy user and test the API!</strong>
+          </p>
+          
+          <p>
+            <a href="api.html" target="_blank" rel="noopener">View the API documentation &raquo;</a>
+          </p>
+
+          <p>
+            <a href="https://hoppscotch.io/?method=GET&url=https://project-one-ofo6.onrender.com/api/v1/users/" 
+              target="_blank" rel="noopener noreferrer">
+              Test the API on Hoppscotch &raquo;
+            </a>
+          </p>
+
+          <iframe 
+            src="https://project-one-ofo6.onrender.com" 
+            width="100%" 
+            height="800"
+            frameborder="0">
+          </iframe>
+        </div>
+
+        <!-- Power BI Pipeline -->
+        <div class="slide">
+          <h3>Power BI Weather Data Pipeline</h3>
+          <p>
+            This project demonstrates a dynamic Power BI pipeline that retrieves and processes historical weather data from Environment Canada. It uses Power Query (M) to extract file metadata, filter by year, and combine multiple CSV files into a structured dataset.
+          </p>
+          <a href="pipeline.html" target="_blank" rel="noopener">
+            <img src="images/pipeline_preview.png" alt="Power BI pipeline preview" class="content-image" />
+          </a>
+          <p>
+            <a href="pipeline.html" target="_blank" rel="noopener">View the pipeline documentation &raquo;</a>
+          </p>
+        </div>
+
+        <!-- Blog Post -->
+        <div class="slide">
+          <h3>Blog Post: Careem's Data Breach</h3>
+          <p>
+            A personal reflection on my experience working at Careem during the time of its data breach, sharing lessons on data security, internal response, and what it taught me about trust and transparency.
+          </p>
+          <a href="essay.html" target="_blank" rel="noopener noreferrer" aria-label="Read my blog post about Careem's Data Breach">
+            <img src="images/careem.jpg" alt="Careem Data Breach blog post preview" class="content-image" />
+          </a>
+
+          <p>
+            <a href="essay.html" target="_blank" rel="noopener noreferrer" aria-label="Read my blog post about Careem's Data Breach">
+              Read my blog post on Careem's Data Breach: What I Learned from the Inside
+            </a>
+          </p>
+        </div>
+
+        <!-- Capstone Project -->
+        <div class="slide">
+          <h3>Business Analytics Consulting Capstone Project</h3>
+          <p>
+            This project was completed as part of my final semester at Seneca College. It analyzed Canadian cell phone plans compared to U.S. offerings, with the goal of providing a data-driven assessment of how Canadian plans perform in terms of value, features, and cost. Our team developed a scoring model that incorporated both qualitative and quantitative data.
+          </p>
+
+          <a href="Business_Analytics_Consulting_Capstone_Project.pdf" target="_blank" rel="noopener noreferrer">
+            <img src="images/capstone_preview.png" alt="Capstone project preview" class="content-image" />
+          </a>
+          <p>
+            <a href="Business_Analytics_Consulting_Capstone_Project.pdf" target="_blank" rel="noopener noreferrer">
+              📄 View Full Report (PDF)
+            </a>
+          </p>
+
+          <h3>What I contributed</h3>
+          <ul>
+            <li>Identified key columns from the dataset (Table 3) and cleaned and normalized the data</li>
+            <li>Defined the core features to assess (e.g. data, coverage, extras)</li>
+            <li>Designed the scoring model and normalization method</li>
+            <li>Assigned importance weights based on appendix data</li>
+            <li>Developed metrics like points per dollar for comparison</li>
+            <li>Created visualizations and comparative graphs</li>
+            <li>Drew final insights and supported the report narrative</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <button class="next">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M9 6l6 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</section>
+
+
+<section id="contact" style="text-align: center; padding: 40px 20px; background-color: #e0f7fa;">
+  <h2>Contact Me</h2>
+  <p>If you’d like to discuss projects, opportunities, or just say hello, feel free to reach out!</p>
+  <p>
+    <a href="mailto:tareq.haboukh@gmail.com" aria-label="Send email to Tareq Haboukh">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail Icon" class="icon" />
+    </a>
+    <a href="https://www.linkedin.com/in/tareqhaboukh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo" class="icon" />
+    </a>
+    <a href="https://github.com/Tareqhaboukh" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733609.png" alt="GitHub Logo" class="icon" />
+    </a>
+  </p>
+</section>
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7e718e7fbddb4cd3a633c2df3606669f"}'></script>
+  <script src="js/slider.js"></script>
 </body>
 </html>
