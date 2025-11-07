@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tareq Haboukh | Resume & Portfolio</title>
 
-  <meta name="description" content="Dynamic Business Analyst with 6+ years of experience in analytics, ETL workflows, and data visualization.">
-  <meta name="keywords" content="Tareq Haboukh, Business Analyst, Data Analyst, Portfolio, Power BI, ETL, Analytics, Canada, Business Optimization, Reporting, Automation">
+  <!-- Primary Meta Tags -->
+  <meta name="description" content="Dynamic Business Analyst with 7+ years of experience in analytics, ETL workflows, and data visualization. Skilled in Power BI, Tableau, Python, SQL, and process optimization." />
   <meta name="author" content="Tareq Haboukh">
 
+  <!-- Open Graph / Social Media -->
   <meta property="og:title" content="Tareq Haboukh | Resume & Portfolio" />
-  <meta property="og:description" content="Dynamic Business Analyst with 6+ years of experience in analytics, ETL workflows, and data visualization." />
+  <meta property="og:description" content="Dynamic Business Analyst with 7+ years of experience in analytics, ETL workflows, and data visualization. Skilled in Power BI, Tableau, Python, SQL, and process optimization." />
   <meta property="og:image" content="images/Preview.png" />
   <meta property="og:url" content="https://tareqhaboukh.github.io/" />
   <meta property="og:type" content="website" />
@@ -60,7 +61,7 @@ section {
   justify-content: center;
   align-items: center;
   gap: 40px;
-  margin: 20px;
+  margin: 20px 0;
 }
 
 .icon-container img.icon {
@@ -96,7 +97,6 @@ img.content-image {
   margin: 0 auto 40px auto;
 }
 
-/* Slider container and track */
 .slider-container {
   overflow: hidden;
   width: 100%;
@@ -112,7 +112,6 @@ img.content-image {
   min-width: 100%;
 }
 
-/* Slider controls (arrows + dots) above content */
 .slider-controls {
   display: flex;
   justify-content: center;
@@ -134,11 +133,10 @@ img.content-image {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0; /* prevents shrinking on small screens */
+  flex-shrink: 0;
 }
 
-/* Slider dots */
-.slider-controls .slider-dots {
+.slider-dots {
   display: flex;
   justify-content: center;
   gap: 8px;
@@ -186,82 +184,23 @@ img.content-image {
   transform: rotate(90deg);
 }
 
-/* Smooth expandable content */
 .expandable-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.6s ease;
-  padding: 0; /* padding handled inside content elements */
+  padding: 0;
 }
 
-/* Add spacing between header and content */
 .expandable-content > *:first-child {
-  margin-top: 20px; /* adjust as needed */
+  margin-top: 20px;
 }
 
 .expandable-section.active .expandable-content {
-  max-height: 3000px; /* large enough for all content */
+  max-height: 3000px;
 }
 
-/* Reset child margins to avoid jump on collapse */
 .expandable-content > * {
   margin-bottom: 1em;
-}
-
-/* ==========================
-   Responsive Styles
-========================== */
-
-/* Tablet View */
-@media (max-width: 768px) {
-  body {
-    margin: 20px auto;
-    padding: 0 10px;
-  }
-  h1 {
-    font-size: 1.8rem;
-  }
-  h2 {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-  }
-  p {
-    font-size: 1rem;
-  }
-  .company-logos img {
-    max-height: 24px;
-  }
-  .icon-container {
-    gap: 30px;
-  }
-  .icon-container img.icon {
-    width: 30px;
-    height: 30px;
-  }
-  .slider-controls button.prev,
-  .slider-controls button.next {
-    width: 36px;
-    height: 36px;
-    font-size: 1.3rem;
-  }
-}
-
-/* Phone View */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-  h2 {
-    font-size: 1.2rem;
-  }
-  p, li {
-    font-size: 0.95rem;
-  }
-  .slider-controls button.prev,
-  .slider-controls button.next {
-    width: 32px;
-    height: 32px;
-  }
 }
 
 /* ==========================
@@ -269,24 +208,79 @@ img.content-image {
 ========================== */
 .skills-container {
   display: flex;
-  gap: 40px; /* space between columns */
-  flex-wrap: wrap; /* responsive stacking on small screens */
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .skills-column {
-  flex: 1; /* each column takes equal width */
-  min-width: 280px; /* prevents too narrow columns on small screens */
+  flex: 1;
+  min-width: 280px;
 }
 
 .skills-column h4 {
   margin-bottom: 16px;
+  font-size: 1.1rem;
 }
 
 .skills-column ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin-top: 0;
-  margin-bottom: 1em;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.skills-column li {
+  margin-bottom: 12px;
+}
+
+.skill-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.skill-line span:first-child {
+  font-weight: normal;
+}
+
+.stars {
+  color: #f5b301;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.skills-column small {
+  display: block;
+  margin-left: 15px;
+  color: #555;
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+/* ==========================
+   Responsive Styles
+========================== */
+@media (max-width: 768px) {
+  body {
+    margin: 20px auto;
+    padding: 0 10px;
+  }
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.4rem; margin-bottom: 20px; }
+  p { font-size: 1rem; }
+  .company-logos img { max-height: 24px; }
+  .icon-container { gap: 30px; }
+  .icon-container img.icon { width: 30px; height: 30px; }
+  .slider-controls button.prev,
+  .slider-controls button.next { width: 36px; height: 36px; font-size: 1.3rem; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.2rem; }
+  p, li { font-size: 0.95rem; }
+  .slider-controls button.prev,
+  .slider-controls button.next { width: 32px; height: 32px; }
 }
 </style>
 
@@ -334,51 +328,181 @@ img.content-image {
     <p>Dynamic professional with 7+ years of experience in business and data analytics. Well-versed in performance monitoring, ETL workflows, predictive analytics, and data visualization using Power BI and Tableau. Skilled in delivering actionable insights, optimizing processes, and collaborating across cross-functional teams to drive business performance and realize process improvements.</p>
   </section>
 
-<section id="skills" class="expandable-section">
-  <div class="expandable-header">
-    <span>Technical and Business Expertise</span>
-    <span class="chevron">–</span>
-  </div>
+  <section id="skills" class="expandable-section">
+    <div class="expandable-header">
+      <span>Technical and Business Expertise</span>
+      <span class="chevron">–</span>
+    </div>
 
-  <div class="expandable-content">
-    <div class="skills-container">
-      <div class="skills-column">
-        <h4>Technical & Analytical</h4>
-        <ul>
-          <li>SQL</li>
-          <li>Python (Pandas, Flask)</li>
-          <li>Power BI, Tableau</li>
-          <li>Excel (Power Query, PivotTables, advanced formulas)</li>
-          <li>ETL & data transformation</li>
-          <li>API integration</li>
-          <li>Predictive analytics</li>
-          <li>Statistical modeling</li>
-          <li>Data mining & trend analysis</li>
-          <li>KPI reporting</li>
-          <li>Workflow automation</li>
-          <li>UAT & implementation</li>
-        </ul>
-      </div>
+    <div class="expandable-content">
+      <p class="experience-note">⭐ indicates years of hands-on experience</p>
 
-      <div class="skills-column">
-        <h4>Business & Collaboration</h4>
-        <ul>
-          <li>Requirements gathering</li>
-          <li>Process optimization</li>
-          <li>Business process mapping</li>
-          <li>Metadata management</li>
-          <li>SLA assessment</li>
-          <li>Operational analytics</li>
-          <li>Cross-functional teamwork</li>
-          <li>Stakeholder engagement</li>
-          <li>Project documentation (Confluence, SharePoint)</li>
-          <li>Executive dashboard development & implementation</li>
-          <li>Team training and support</li>
-        </ul>
+      <div class="skills-container">
+        <!-- Technical Column -->
+        <div class="skills-column">
+          <h4>Technical & Analytical</h4>
+          <ul class="skills-list">
+            <li>
+              <span class="skill-line">
+                <span>SQL</span>
+                <span class="stars">⭐⭐⭐⭐⭐⭐</span>
+              </span>
+              <small>Joins (INNER, LEFT, RIGHT, FULL), Common Table Expressions (CTEs), Window Functions, Variables & Parameters, Query Writing & Optimization</small>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Python</span>
+                <span class="stars">⭐⭐⭐</span>
+              </span>
+              <small>Pandas, Flask, Scripting, Data Cleaning & Transformation</small>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Power BI</span>
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+              </span>
+              <small>Data modeling, DAX, Power Query, KPI dashboards, data transformation, report automation</small>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Excel</span>
+                <span class="stars">⭐⭐⭐⭐⭐⭐⭐</span>
+              </span>
+              <small>Power Query, PivotTables, advanced formulas</small>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>ETL & data transformation</span>
+                <span class="stars">⭐⭐⭐⭐⭐⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>API integration</span>
+                <span class="stars">⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Predictive analytics</span>
+                <span class="stars">⭐⭐⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Statistical modeling</span>
+                <span class="stars">⭐⭐⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Data mining</span>
+                <span class="stars">⭐⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Trend analysis</span>
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Workflow automation</span>
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>UAT & implementation</span>
+                <span class="stars">⭐⭐⭐</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Business Column -->
+        <div class="skills-column">
+          <h4>Business & Collaboration</h4>
+          <ul class="skills-list">
+            <li>
+              <span class="skill-line">
+                <span>Requirements gathering</span>
+                <span class="stars">⭐⭐⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Process optimization</span>
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Business process mapping</span>
+                <span class="stars">⭐⭐⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Operational analytics</span>
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>KPI reporting</span>
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Stakeholder engagement</span>
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Cross-functional teamwork</span>
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Executive dashboard development</span>
+                <span class="stars">⭐⭐⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Project documentation</span>
+                <span class="stars">⭐⭐⭐</span>
+              </span>
+              <small>Confluence, SharePoint</small>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>SLA assessment</span>
+                <span class="stars">⭐⭐⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Metadata management</span>
+                <span class="stars">⭐⭐⭐</span>
+              </span>
+            </li>
+            <li>
+              <span class="skill-line">
+                <span>Team training and support</span>
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+              </span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <section id="why-me" class="expandable-section">
     <div class="expandable-header">
@@ -431,7 +555,6 @@ img.content-image {
     <span class="chevron">–</span>
   </div>
 
-  <!-- <div class="slider-dots"></div> -->
   <div class="expandable-content">
     <div class="slider-section">
 
@@ -458,7 +581,7 @@ img.content-image {
           <div class="slide">
             <h3>
               <a href="https://project-one-ofo6.onrender.com" target="_blank" rel="noopener" title="Open in new tab">
-                <h3>Live Flask App: Project One <img src="https://cdn-icons-png.flaticon.com/128/12690/12690013.png" alt="Open in new tab" width="25" style="vertical-align:text-bottom;"></h3>
+                Live Flask App: Project One <img src="https://cdn-icons-png.flaticon.com/128/12690/12690013.png" alt="Open in new tab" width="25" style="vertical-align:text-bottom;">
               </a>
             </h3>
             <p>
