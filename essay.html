@@ -6,47 +6,184 @@
   <title>Careem's Data Breach: What I Learned from the Inside</title>
   <style>
     body {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-    line-height: 1.6;
-    color: #333;
-    background-color: #fff;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #222;
     }
-    h1, h2, h3 {
-    color: #0072b1;
+
+    /* HERO SECTION */
+
+    .hero {
+      position: relative;
+      height: 400px;
+      background-image: url('images/Careem.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
     }
-    h1 {
-    font-size: 2em;
-    margin-bottom: 0.3em;
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
     }
-    h2 {
-    margin-top: 2rem;
+
+    .hero-content {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 40px;
+      color: white;
     }
-    a {
-    color: #0072b1;
+
+    .hero-meta {
+      font-size: 14px;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 300;
+      margin: 0 0 24px 0;
+      line-height: 1.1;
+    }
+
+    .hero-author {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: rgba(255,255,255,0.9);
+    }
+
+    .hero-date {
+    font-size: 18px;
+    font-weight: bold;
+    }
+
+    .photo-credit {
+    position: absolute;
+    right: 20px;
+
+    z-index: 2;
+    font-size: 8pt;
+    color: rgba(255,255,255,0.45);
+    font-weight: 400;
+    }
+
+    .photo-credit a {
+    color: rgba(255,255,255,0.6);
     text-decoration: none;
     }
-    a:hover {
+
+    .photo-credit a:hover {
     text-decoration: underline;
     }
-    .byline {
-    font-style: italic;
-    color: #666;
-    margin-bottom: 1rem;
+
+    /* ARTICLE CONTAINER */
+
+    .article-wrapper {
+      max-width: 900px;
+      margin: -60px auto 60px auto;
+      position: relative;
+      z-index: 2;
+      padding: 0 30px;
     }
-    hr {
-    margin: 2rem 0;
-    border: 0;
-    border-top: 1px solid #ddd;
+
+    .article-container {
+      background: white;
+      padding: 0.9in;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    /* ARTICLE BODY */
+
+    .article-body {
+      font-size: 12pt;
+      line-height: 2;
+      text-align: justify;
+    }
+
+    .article-body h2 {
+      font-size: 12pt;
+      font-weight: bold;
+      margin-top: 12px;
+      margin-bottom: 12pt;
+}
+
+    .article-body p {
+      margin-bottom: 12pt;
+    }
+
+    /* APA REFERENCES */
+
+    .references p {
+      padding-left: 0.5in;
+      text-indent: -0.5in;
+    }
+
+    /* IMAGE */
+
+    .article-body img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 30px 0;
+      display: block;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 768px) {
+
+      .hero {
+        height: 340px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .article-container {
+        padding: 35px;
+      }
+
+      .article-wrapper {
+        margin-top: -50px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Careem's Data Breach: What I Learned from the Inside</h1>
-  <p class="byline">By Tareq Haboukh<br>Originally written for "Security, Privacy and Ethics for Business Analytics" - March 29, 2022</p>
-  <hr>
+
+  <header class="hero">
+
+    <div class="hero-content">
+      <div class="hero-meta">
+        Cybersecurity • Data Privacy • Business Ethics
+      </div>
+
+      <h1>Careem's Data Breach: What I Learned from the Inside</h1>
+
+      <div class="hero-author">
+        Tareq Haboukh
+      </div>
+
+      <div class="hero-date">
+        March 29, 2022
+      </div>
+    </div>
+
+  </header>
+
+  <main class="article-wrapper">
+
+    <article class="article-container">
+
+      <div class="article-body">
 
   <p>What started as a typical day at work turned into my first real-life experience dealing with a major cybersecurity incident. At the time, I was working at Careem’s Amman office. We were called into an urgent meeting where leadership addressed circulating rumors of a data leak and informed us that a public statement would be made the next day. They walked us through the possible consequences and reassured us that being transparent was the right course of action.</p>
 
@@ -60,22 +197,32 @@
 
   <p>Ethical hackers had reportedly warned Careem about security vulnerabilities as early as 2016, but their alerts were allegedly ignored. One hacker, Farooq Baloch, claimed that attempts were made via email, social media, and even direct meetings with executives. He argued that a small investment in a bug bounty program could have significantly improved security.</p>
 
-  <p>Interestingly, Uber (which later acquired Careem) experienced a similar breach in 2016, affecting 57 million users and drivers. Uber paid the hackers $100,000 to delete the data—raising further ethical questions around how tech companies handle breaches.</p>
+  <p>Interestingly, Uber (which later acquired Careem) experienced a similar breach in 2016, affecting 57 million users and drivers. Uber paid the hackers $100,000 to delete the data, raising further ethical questions around how tech companies handle breaches.</p>
 
   <p>Looking back, I believe Careem made risky decisions early on by prioritizing rapid growth over long-term security. The breach forced a necessary shift in strategy. While the delay in disclosure remains controversial, I think the company’s eventual transparency and steps toward improvement were a turning point.</p>
 
-  <p>This experience was eye-opening. It showed me how easy it is to overlook information security—even with the best intentions—and how critical it is for fast-growing companies to treat privacy and cybersecurity as foundational priorities.</p>
+  <p>This experience was eye-opening. It showed me how easy it is to overlook information security, even with the best intentions, and how critical it is for fast-growing companies to treat privacy and cybersecurity as foundational priorities.</p>
 
-  <hr>
+        <section class="references">
+          <h2>References</h2>
 
-  <h2>References</h2>
-  <ul>
-    <li>Baloch, Farooq. "Who is to blame for Careem’s criminal data breach?" Pakistan Today, April 25, 2018.</li>
-    <li>Careem. "Important Careem Security Information." Careem Blog, April 23, 2018.</li>
-    <li>Dawn. "Careem users' personal data compromised in massive data breach." April 23, 2018.</li>
-    <li>Harrison, Peter. "Hackers access personal data of 14 million Careem taxi users." Arab News, April 23, 2018.</li>
-    <li>Paul, Katie. "Dubai's Careem hit by cyber attack affecting 14 million users." Reuters, April 23, 2018.</li>
-  </ul>
+          <p>Baloch, Farooq. "Who is to blame for Careem’s criminal data breach?" <em>Pakistan Today</em>, April 25, 2018.</p>
+
+          <p>Careem. "Important Careem Security Information." <em>Careem Blog</em>, April 23, 2018.</p>
+
+          <p>Dawn. "Careem users' personal data compromised in massive data breach." April 23, 2018.</p>
+
+          <p>Harrison, Peter. "Hackers access personal data of 14 million Careem taxi users." <em>Arab News</em>, April 23, 2018.</p>
+
+          <p>Paul, Katie. "Dubai's Careem hit by cyber attack affecting 14 million users." <em>Reuters</em>, April 23, 2018.</p>
+        </section>
+
+      </div>
+
+    </article>
+
+  </main>
+
 </body>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7e718e7fbddb4cd3a633c2df3606669f"}'></script>
 <script src="js/slider.js"></script>
