@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Governance and Accountability Report</title>
+
+  <meta name="author" content="Tareq Haboukh">
+
+  <meta name="description" content="Governance and accountability report analyzing EllisDon’s construction safety framework, focusing on subcontractor oversight, regulatory compliance, and high-risk project controls, with recommendations to strengthen executive governance and site-level execution.">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #222;
+    }
+
+    /* HERO SECTION */
+
+    .hero {
+      position: relative;
+      height: 400px;
+      background-image: url('images/Construction.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 40px;
+      color: white;
+    }
+
+    .hero-meta {
+      font-size: 14px;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 300;
+      margin: 0 0 24px 0;
+      line-height: 1.1;
+    }
+
+    .hero-author {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: rgba(255,255,255,0.9);
+    }
+
+    .hero-date {
+    font-size: 18px;
+    font-weight: bold;
+    }
+
+    .photo-credit {
+    position: absolute;
+    right: 20px;
+
+    z-index: 2;
+    font-size: 8pt;
+    color: rgba(255,255,255,0.45);
+    font-weight: 400;
+    }
+
+    .photo-credit a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    }
+
+    .photo-credit a:hover {
+    text-decoration: underline;
+    }
+
+    /* ARTICLE CONTAINER */
+
+    .article-wrapper {
+      max-width: 900px;
+      margin: -60px auto 60px auto;
+      position: relative;
+      z-index: 2;
+      padding: 0 30px;
+    }
+
+    .article-container {
+      background: white;
+      padding: 0.9in;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    /* ARTICLE BODY */
+
+    .article-body {
+      font-size: 12pt;
+      line-height: 2;
+      text-align: justify;
+    }
+
+    .article-body h2 {
+      font-size: 12pt;
+      font-weight: bold;
+      margin-top: 12px;
+      margin-bottom: 12pt;
+}
+
+    .article-body p {
+      margin-bottom: 12pt;
+    }
+
+    /* APA REFERENCES */
+
+    .references p {
+      padding-left: 0.5in;
+      text-indent: -0.5in;
+    }
+
+    /* IMAGE */
+
+    .article-body img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 30px 0;
+      display: block;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 768px) {
+
+      .hero {
+        height: 340px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .article-container {
+        padding: 35px;
+      }
+
+      .article-wrapper {
+        margin-top: -50px;
+      }
+    }
+    /* =========================
+   TABLE STYLING
+   ========================= */
+
+.article-body table {
+  text-align: left;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0 36px 0;
+  font-size: 11.5pt;
+  line-height: 1.6;
+  background: white;
+  border: 1px solid #ddd;
+}
+
+.article-body th,
+.article-body td {
+  text-align: left;
+  border: 1px solid #e1e1e1;
+  padding: 12px 14px;
+  vertical-align: center;
+}
+
+.article-body th {
+  background-color: #f5f6f8;
+  font-weight: 600;
+  text-align: left;
+  font-size: 11.5pt;
+}
+
+.article-body tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.article-body tr:hover {
+  background-color: #f1f4f8;
+}
+
+/* Slightly improve table section spacing inside article */
+.article-body h3 {
+  margin-top: 28px;
+  margin-bottom: 12px;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+/* Optional: make long text wrap nicely in tables */
+.article-body td {
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+/* Optional: subtle shadow for better separation from page background */
+.article-body table {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  border-radius: 6px;
+  overflow: hidden;
+}
+    
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-meta">
+        Governance and Accountability • Construction Safety
+      </div>
+
+      <h1>Governance and Accountability Report</h1>
+
+      <div class="hero-author">
+        Tareq Haboukh
+      </div>
+
+      <div class="hero-date">
+        April 19, 2026
+      </div>
+
+          <div class="photo-credit">
+    Photo by 
+    <a href="https://unsplash.com/@dianamia" target="_blank">
+        C Dustin
+    </a>
+    on 
+    <a href="https://unsplash.com/photos/a-group-of-tall-buildings-under-a-cloudy-blue-sky-91AQt9p4Mo8" target="_blank">
+        Unsplash
+    </a>
+    </div>
+
+    </div>
+
+  </header>
+
+  <main class="article-wrapper">
+
+    <article class="article-container">
+
+      <div class="article-body">
+
+        <h2>Executive summary</h2>
+
+        <p>EllisDon is a large employee-owned construction company that publicly presents safety, integrity, and accountability as core parts of its operating model. This report aims to determine whether its publicly stated commitments are being translated into effective governance and accountability on high-risk, complex, and multi-layered construction projects.</p>
+        <p>The analysis shows that even though EllisDon’s public framework seems strong at a policy level, recent incidents and penalties are evidence of weaknesses in site-level execution, subcontractor oversight, and early risk escalation. These issues are important on complex, multi-layered construction sites where accountability can become fragmented and risks may not be managed consistently.</p>
+        <p>The report concludes that the issue is a governance and accountability problem rather than a technical safety issue, which results in human, legal, operational, financial, reputational, and governance consequences. A second finding is that multi-contractor construction environments make accountability harder to coordinate. Responsibility is spread across multiple stakeholders and becomes fragmented, which increases the chance that hazards are missed and accountability is not fully owned. A third finding suggests that the current approach appears to be reactive and relies on lagging indicators instead of leading controls that identify risks before harm is done.</p>
+        <p>Three strategic options were evaluated, and the preferred approach is a governance-centered safety accountability model supported by stronger site-level controls. The recommended actions are to strengthen governance of high-risk operations, improve subcontractor qualification and oversight, and enhance board and executive reporting through better safety metrics and corrective action tracking. Implementation should occur over 12 months in three phases, beginning with gap assessment and design, followed by pilot testing, and then full rollout. Expected outcomes include fewer serious incidents, stronger compliance, clearer accountability, and improved stakeholder confidence. </p>
+        
+        <h2>Introduction</h2>
+        <p>The following report analyzes safety governance and accountability framework at EllisDon in relation to high-risk construction activities. Its purpose is to evaluate whether the company’s current governance, subcontractor oversight, and site-level accountability framework in place is strong enough to manage complex project risks and to recommend actions management should take to reduce human, legal, operational, reputational, and governance risk. The report is written for EllisDon management and focuses on governance and accountability as whole rather than technical safety issues alone.</p>
+        <p>The focus of the report is limited to EllisDon’s role as a prime contractor on high-risk projects, with regard to safety governance, subcontractor control, and escalation procedures. Although these challenges are common across the construction industry, the issue is especially important for EllisDon because it publicly presents health and safety as the cornerstone of its operations and frames governance as transparent, ethical, and accountable. As a result, EllisDon faces a high level of responsibility to ensure that its governance systems are effective in practice and not only written in policy.</p>
+        <p>The central problem is that EllisDon’s stated public commitments to safety and governance may not be fully translating into consistent control over high-risk worksite practices, especially where multiple contractors, supervisors, and lifting operations are involved. This gap matters because weak execution and fragmented accountability can increase the likelihood of serious harm, regulatory exposure, project disruption, reputational damage, and reduced stakeholder confidence.</p>
+        
+        <h2>Analysis and Assessment</h2>
+        <p>EllisDon is a large and complex employee-owned construction services company with more than 10,000 employees. Governance and accountability at that scale are highly important due to the complexity and multi-layered nature of its projects. EllisDon publicly states that health and safety are the cornerstone of its operating model and continues to emphasize improvements in safety culture (EllisDon Corporation, n.d.). In the construction industry, safety governance is a critical issue because projects are high-risk, temporary, and involve multiple stakeholders, including contractors and subcontractors. Therefore, weak governance and oversight can lead to serious human and operational consequences.</p>
+        <p>EllisDon advocates for safety governance at the highest level of management and presents a culture of care centered on prevention, education, and ensuring workers return home safely, which creates a high governance standard used to assess performance. By issuing its annual impact report, EllisDon presents itself as a company with organized, leadership-level oversight of ESG issues, which raises expectations that its safety and accountability framework is also strong in practice. In addition, EllisDon is part of the Canadian Construction Safety Council (CCSC) and is a proud member of the Construction Safety Research Alliance (CSRA), which indicates that the company is involved in a broader industry effort to raise safety standards (EllisDon Corporation, 2025).</p>
+        <p>Issue 1: Gap between stated commitments and field execution. From a distance, EllisDon’s public safety and governance commitments appear strong, but recent incidents and disciplinary actions against the company suggest that these public commitments are not always consistently implemented into effective site-level control of high-risk work, which creates a gap between policy and execution, especially on complex, multi-layered projects (WorkSafeBC, 2025). A summary of the three main governance issues is provided in Appendix A.</p>
+        <p>Issue 2: Subcontractor and multi-layered operation oversight risk. A typical construction site has multiple contractors and subcontractors working alongside the company to deliver the project. As a result, responsibility becomes harder to coordinate between them and increases the chance of weak control over critical activities (WorkSafeBC, 2025). This creates higher risks when one party may assume another is checking the hazard, safety instructions may not be communicated clearly across the site, and, more importantly, no one may fully own a critical task from start to finish.</p>
+        <p>Issue 3: Reactive oversight rather than proactive risk control. EllisDon appears to rely heavily on lagging indicators such as injuries, fatalities, fines, convictions, or regulator penalties to assess safety performance, whereas a stronger governance framework would rely on proactive controls and emphasize leading indicators to identify and address risks before incidents occur (Bayona et al., 2023).</p>
+        <p>These issues are evident in a series of crane-related incidents in 2024 and 2025. WorkSafeBC issued three administrative penalties totaling about $1.3 million for crane-related safety violations, including $627,456.19 tied to the tragic death of a worker and $688,589.56 against EllisDon. This shows how failures in lift planning, risk assessment, and multi-contractor coordination can spark major financial and regulatory consequences (WorkSafeBC, 2025). A similar example occurred in Ontario involving EllisDon Forming Ltd., where two supervisors were fined a total of $130,000 after two workplace incidents, showing that weak site supervision and project control can also lead to convictions and penalties for both the company and individuals (Ontario Newsroom, 2026). These outcomes align with Ontario’s construction regulations and the OHSA’s prevention-focused approach to workplace injuries and occupational diseases, indicating that proactive safety control is a governance requirement (Occupational Health and Safety Act, 2025).</p>
+        <p>Serious injury or fatality is the most significant risk because construction failures can cause life-altering harm, particularly in high-energy events. Repeated non-compliance also increases legal and regulatory risk, as it can lead to larger penalties and stronger enforcement responses from regulators. At the same time, safety failures create operational and financial risk by disrupting work, delaying projects, increasing claims exposure, and raising both direct and indirect costs. They also create governance and reputational risk because, if EllisDon’s governance framework does not remain consistent with site complexity, the company may undermine its public claims of ethical, transparent, and accountable governance. These risks are summarized in Appendix B.</p>
+        <p>A comparison with industry peers suggests that EllisDon’s public safety reporting is less specific about preventive controls than that of some other major construction firms. For example, PCL publicly emphasizes structured pre-job safety instruction, including Safe-Start checks and digital hazard inspection tools (PCL Construction, 2026), while Graham reports a named leading indicator, its Leadership Engagement Indicator, to involve leaders directly in safety activities and accountability (Graham, 2025). EllisDon does show that it has the tools to improve oversight, including AI systems that can identify hazards like missing guardrails, misplaced materials, and missing PPE. However, its public reporting seems to place more emphasis on broad safety commitments and new technology than on clearly defined leading indicators or detailed pre-work safety controls (Mercer, 2025).</p>
+        
+        <h2>Options and Recommendations</h2>
+        <p>EllisDon’s management should evaluate its current governance framework and assess three strategic responses to the recent safety governance issue. The decision criterion should be the option that best reduces legal, operational, and governance risk while remaining practical to implement.</p>
+        <p>Option 1: Maintain the current framework with limited improvements. This option keeps the current governance framework and safety structure with no significant change. The company can make slight policy updates and provide employee training only, while continuing to use the same reporting and oversight practices. While Option 1 is easy to implement and has relatively low costs, its weakness is centered on the gap between public commitment and policy execution. EllisDon presents safety as a core priority, and a minimal-change approach leaves the risks largely unresolved.</p>
+        <p>Option 2: Strengthen site-level operational controls. EllisDon can increase control over high-risk work at the project level by tightening lift planning, pre-task reviews, and supervisor checks. This can be done by expanding the audit toolkit, increasing toolbox talks, and increasing field inspections. This option directly targets front-line execution and is supported by the wider industry approach toward stronger controls for critical construction risks. However, the option is still narrow if escalation, subcontractor accountability, and senior oversight remain weak.</p>
+        <p>Option 3: Governance-centered safety accountability model. The company can use this option to strengthen oversight from both the top and site levels by creating stronger executive and board visibility into critical safety risks. This option is policy-heavy and requires formal escalation processes, documented approvals, and stop-work accountability when performing high-risk jobs. In addition, this model tightens subcontractor qualification and monitoring while requiring periodic audits of their insurance certificates.</p>
+        <p>Recommendation 1: Create a high-risk operations governance system. EllisDon should first identify high-risk critical activities that require improved controls, especially for tasks with recent incidents such as crane operations, lifting, and temporary structural systems. Each high-risk activity should require a standardized approval protocol before work begins, and project leaders and supervisors should be given clear and documented stop-work authority. Formal post-incident reviews should also be required and should focus on evaluating systemic and control failures. These adjustments are supported by the fact that Ontario construction law requires projects, including temporary structures, to be braced to prevent movement, failure, and collapse (Ontario Regulation 213/91, 2026).</p>
+        <p>Recommendation 2: Strengthen subcontractor accountability and oversight. To reduce subcontractor risk, EllisDon should introduce strict subcontractor prequalification for those working on safety-critical projects. Competency and trade-specific safety documents should be required from subcontractors before starting work, along with site-specific oversight plans that govern subcontracted high-risk work. EllisDon should impose strict progressive consequences for repeated non-compliance. In addition, due to the complexity of projects and accountability for risk, EllisDon must clarify responsibility between its own supervisors, subcontractor supervisors, and project leadership. This is important because project risks are magnified when responsibility becomes fragmented and complexity increases.</p>
+        <p>Recommendation 3: Improve board and senior leadership reporting. Reporting and health and safety KPIs must focus on transparency and integrity. Reporting teams should create executive dashboards that communicate both leading and lagging safety indicators. The board should require quarterly reviews of serious incidents, near misses, regulatory orders, and corrective actions. With this visibility, executive and project leadership accountability must be linked to safety performance and control effectiveness, while also requiring corrective action closure tracking and escalation timelines. This framework aligns with EllisDon’s public framing of governance, integrity, and continuous improvement.</p>
+        <p>Implementing the three recommendations will take up to 12 months. In the first stage, between zero and three months, an executive should be appointed as the owner and tasked with identifying high-risk activities, reviewing subcontractor controls, and designing the reporting dashboard. Appointing an executive would signal that safety is a strategic governance priority for the company. This step is important because it acts as a gap assessment of the current procedures and enables EllisDon to identify where governance controls are weakest.</p>
+        <p>The next step, from three to six months, is to revise approval procedures, retrain project leaders and supervisors, and pilot the new controls on selected projects. In this step, the company should translate the design into working controls by revising approval procedures for high-risk work, clarifying stop-work and escalation authority, retraining project leaders and supervisors, and launching stronger prequalification and audit requirements for safety-critical subcontractors. The company should also test the new controls and dashboard and make sure they are accurate.</p>
+        <p>The final step would be to roll out the new and improved model across all projects within six to twelve months, require quarterly senior reviews, and conduct an independent effectiveness review. This means moving from pilot to full implementation, integrating the lessons learned into the governance reporting process, and evaluating whether the new protocols are working in practice. At this point, the executive committee should hold leadership accountable for progress and direct the company-wide rollout. Project leaders should remain responsible for execution on site, and contractor management should track compliance and repeated issues. The implementation plan is summarized in Appendix C.</p>
+        <p>The new safety governance framework would lower the probability of serious incidents and repeated violations of unsafe work practices. It would position the company for stronger regulatory and documentation compliance if incidents occur. It would also give leadership better visibility into high-risk work before incidents take place. Successful implementation would improve client confidence in the company’s ability to align its stated values with on-site operational practices. In addition, the company could tangibly measure success by reducing incident rates and repeat violations, while improving audit scores, training completion, corrective-action closure, and time to escalation for critical concerns. Consequently, this would reduce the direct and indirect costs of operations and could lower insurance premiums.</p>
+        
+        <h2>Conclusion</h2>
+        <p>The safety issue facing EllisDon is a broader governance and accountability challenge and are not concentrated on a site operational level. The analysis shows that the company’s public safety commitments are strong, but recent incidents and penalties suggest that execution, subcontractor oversight, and early risk escalation are not strong enough for the complexity of its projects. For that reason, EllisDon should not rely on minor adjustments alone. It should adopt a governance-centered safety accountability model supported by stronger site-level controls. This means improving oversight of high-risk work, tightening subcontractor qualification and supervision, and giving senior leadership clearer visibility into both leading and lagging safety indicators. If implemented properly over the next 12 months, these actions would reduce the likelihood of serious incidents, strengthen regulatory compliance, improve documentation and accountability, and better align EllisDon’s operational practices with its stated values. This would protect workers, reduce enterprise risk, and strengthen long-term stakeholder confidence.</p>
+
+        <section class="references">
+
+        <h2>References</h2>
+
+        <p>
+            Bayona, A., Bhandari, S., Hallowell, M., Sherratt, F., Bailey, J. M., & Upton, J., Jr. (2023, September). <em>A model for defining serious injuries & fatalities</em>. Professional Safety.
+            <a href="https://www.assp.org/docs/default-source/psj-articles/f1bayona_0923.pdf?sfvrsn=2ab06946_0" target="_blank">
+            https://www.assp.org/docs/default-source/psj-articles/f1bayona_0923.pdf?sfvrsn=2ab06946_0
+            </a>
+        </p>
+
+        <p>
+            EllisDon Corporation. (n.d.). <em>About us</em>.
+            <a href="https://www.ellisdon.com/about-us" target="_blank">
+            https://www.ellisdon.com/about-us
+            </a>
+        </p>
+
+        <p>
+            EllisDon Corporation. (2025). <em>Impact report 2025</em>.
+            <a href="https://impactreport2025.ellisdon.com/" target="_blank">
+            https://impactreport2025.ellisdon.com/
+            </a>
+        </p>
+
+        <p>
+            Graham. (2025). <em>2024 sustainability report</em>.
+            <a href="https://www.grahambuilds.com/wp-content/uploads/2025/06/2024-Sustainability-Report_Final.pdf" target="_blank">
+            https://www.grahambuilds.com/wp-content/uploads/2025/06/2024-Sustainability-Report_Final.pdf
+            </a>
+        </p>
+
+        <p>
+            Mercer, S. (2025, October 29). <em>How EllisDon is balancing AI, ethics, and safety. Canadian Occupational Safety</em>.
+            <a href="https://www.thesafetymag.com/ca/news/general/how-ellisdon-is-balancing-ai-ethics-and-safety/547063" target="_blank">
+            https://www.thesafetymag.com/ca/news/general/how-ellisdon-is-balancing-ai-ethics-and-safety/547063
+            </a>
+        </p>
+
+        <p>
+            Occupational Health and Safety Act, R.S.O. 1990, c. O.1. (2025). Ontario e-Laws. 
+            <a href="https://www.ontario.ca/laws/statute/90o01" target="_blank">
+            https://www.ontario.ca/laws/statute/90o01
+            </a>
+        </p>
+
+        <p>
+            Ontario Newsroom. (2026, February 17). <em>Construction company and supervisors fined $130,000 total after two workplace incidents</em>.
+            <a href="https://news.ontario.ca/en/court/1007048/construction-company-and-supervisors-fined-130000-total-after-two-workplace-incidents" target="_blank">
+            https://news.ontario.ca/en/court/1007048/construction-company-and-supervisors-fined-130000-total-after-two-workplace-incidents
+            </a>
+        </p>
+
+        <p>
+            Ontario Regulation 213/91: Construction projects, R.R.O. 1990. (2026). Ontario e-Laws. 
+            <a href="https://www.ontario.ca/laws/regulation/910213" target="_blank">
+            https://www.ontario.ca/laws/regulation/910213
+            </a>
+        </p>
+
+        <p>
+            PCL Construction. (2026, January 20). <em>Early identification of critical risks in construction can save lives</em>.
+            <a href="https://www.pcl.com/ca/en/newsroom/press-releases/early-identification-of-critical-risks-in-construction-can-save-lives" target="_blank">
+            https://www.pcl.com/ca/en/newsroom/press-releases/early-identification-of-critical-risks-in-construction-can-save-lives
+            </a>
+        </p>
+
+        <p>
+            WorkSafeBC. (2025, December 12). <em>WorkSafeBC updates penalties database to include $1.3 million in penalties for crane-related safety violations</em>.
+            <a href="https://www.worksafebc.com/en/about-us/news-events/news-releases/2025/December/worksafebc-updates-penalties-database" target="_blank">
+            https://www.worksafebc.com/en/about-us/news-events/news-releases/2025/December/worksafebc-updates-penalties-database
+            </a>
+        </p>
+
+        </section>
+
+        <h2>Appendices</h2>
+
+        <h3>Appendix A: Issue Summary</h3>
+        <table border="1">
+        <tr>
+            <th>Issue</th>
+            <th>What is happening</th>
+            <th>Why it matters</th>
+        </tr>
+        <tr>
+            <td>Gap between commitments and execution</td>
+            <td>EllisDon presents safety and governance as core priorities, but recent incidents and penalties suggest uneven execution on high-risk sites.</td>
+            <td>Creates a governance credibility gap and increases exposure to serious harm, penalties, and loss of trust.</td>
+        </tr>
+        <tr>
+            <td>Subcontractor oversight weakness</td>
+            <td>Multi-employer sites make responsibility harder to coordinate, especially for safety-critical work.</td>
+            <td>Can lead to unclear accountability, weak supervision, and missed hazards.</td>
+        </tr>
+        <tr>
+            <td>Reactive rather than proactive control</td>
+            <td>Safety performance appears to rely too heavily on lagging indicators such as incidents, fines, and convictions.</td>
+            <td>Risks are identified too late, after harm or enforcement has already occurred</td>
+        </tr>
+        </table>
+
+        <h3>Appendix B: Risk Matrix</h3>
+        <table border="1">
+        <tr>
+            <th>Risk category</th>
+            <th>Description</th>
+            <th>Impact</th>
+            <th>Suggested mitigation</th>
+        </tr>
+        <tr>
+            <td>Human</td>
+            <td>Worker injury or fatality during high-risk activities</td>
+            <td>Very high</td>
+            <td>Stronger approvals, stop-work authority, better supervision</td>
+        </tr>
+        <tr>
+            <td>Legal / regulatory</td>
+            <td>Fines, prosecutions, orders, and enforcement action</td>
+            <td>High</td>
+            <td>Clear controls, documented compliance, stronger oversight</td>
+        </tr>
+        <tr>
+            <td>Operational</td>
+            <td>Delays, investigations, shutdowns, and rework</td>
+            <td>High</td>
+            <td>Better planning, escalation, and project-level monitoring</td>
+        </tr>
+        <tr>
+            <td>Financial</td>
+            <td>Penalties, claims, higher insurance costs, project overruns</td>
+            <td>High</td>
+            <td>Reduce incidents and improve control effectiveness</td>
+        </tr>
+        <tr>
+            <td>Reputational</td>
+            <td>Loss of client confidence and public trust</td>
+            <td>Medium to high</td>
+            <td>Align actual practices with stated commitments</td>
+        </tr>
+        <tr>
+            <td>Governance</td>
+            <td>Weak accountability, poor visibility, fragmented ownership</td>
+            <td>High</td>
+            <td>Executive dashboards, quarterly review, closure tracking</td>
+        </tr>
+        </table>
+
+        <h3>Appendix C: Recommendations Implementation Roadmap</h3>
+        <table border="1">
+        <tr>
+            <th>Timeline</th>
+            <th>Key actions</th>
+            <th>Main owner</th>
+            <th>Output</th>
+        </tr>
+        <tr>
+            <td>0 to 3 months</td>
+            <td>Appoint executive owner, identify high-risk activities, review subcontractor controls, design dashboard</td>
+            <td>Executive committee</td>
+            <td>Gap assessment and draft control model</td>
+        </tr>
+        <tr>
+            <td>3 to 6 months</td>
+            <td>Revise approval procedures, retrain project leaders and supervisors, strengthen prequalification, pilot controls</td>
+            <td>Operations leadership</td>
+            <td>Pilot program and tested reporting process</td>
+        </tr>
+        <tr>
+            <td>6 to 12 months</td>
+            <td>Roll out across projects, require quarterly senior review, conduct independent review</td>
+            <td>Executive committee / project leadership</td>
+            <td>Full implementation and effectiveness review</td>
+        </tr>
+        </table>
+
+      </div>
+
+    </article>
+
+  </main>
+
+</body>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7e718e7fbddb4cd3a633c2df3606669f"}'></script>
+<script src="js/slider.js"></script>
+</html>
