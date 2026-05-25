@@ -1,779 +1,945 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tareq Haboukh | Resume & Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tareq Haboukh | Portfolio</title>
+  <style>
+    /* 1. Global Base Styles */
+    * { box-sizing: border-box; }
+    
+    body {
+      margin: 0;
+      background: #1a1a1a;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+    /* 2. Grid Layout Structure */
+    .grid-layout {
+      display: grid;
+      width: 100%;
+      height: 100vh;
+      min-height: 100vh;
+      padding: 12px;
+      grid-template-columns: 1fr;
+      overflow: hidden;
+    }
 
-  <!-- Primary Meta Tags -->
-  <meta name="description" content="Dynamic Business Analyst with 7+ years of experience in analytics, ETL workflows, and data visualization. Skilled in Power BI, Tableau, Python, SQL, and process optimization." />
-  <meta name="author" content="Tareq Haboukh">
+    @media (min-width: 900px) {
+      .grid-layout {
+        grid-template-columns: 20fr 60fr 20fr;
+        grid-template-rows: auto auto 1fr auto;
+      }
+      .header { grid-column: 1 / 4; grid-row: 1; }
+      .left   { grid-column: 1;     grid-row: 2 / 4; }
+      .top    { grid-column: 2;     grid-row: 2; }
+      .middle { 
+        grid-column: 2; 
+        grid-row: 3 / 5; 
+        overflow-y: auto; 
+        min-height: 0;
+      }
+      .right  { 
+        grid-column: 3;     
+        grid-row: 2 / 5; 
+        overflow-y: auto;
+        min-height: 0;
+      }
+      .bottom { grid-column: 1;     grid-row: 4; }
+    }
 
-  <!-- Open Graph / Social Media -->
-  <meta property="og:title" content="Tareq Haboukh | Resume & Portfolio" />
-  <meta property="og:description" content="Dynamic Business Analyst with 7+ years of experience in analytics, ETL workflows, and data visualization. Skilled in Power BI, Tableau, Python, SQL, and process optimization." />
-  <meta property="og:image" content="images/Preview.png" />
-  <meta property="og:url" content="https://tareqhaboukh.github.io/" />
-  <meta property="og:type" content="website" />
+    /* 3. Box Styling */
+    .box {
+      background: #ffffff;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+    .header { 
+      background: #006064; 
+      color: white; 
+      text-align: center; 
+      padding: 15px; }
 
-<style>
-/* ==========================
-   Global Styles
-========================== */
-body {
-  font-family: Arial, sans-serif;
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-  line-height: 1.6;
-  color: #333;
-  background-color: #fcfcfc;
-}
+    /* 4. Sidebar Styles */
+    .stack-item { 
+      background: #f5f5f5; 
+      padding: 15px; 
+      border-radius: 6px; 
+      margin-bottom: 12px; 
+      border: 1px solid #ddd; }
+    .headshot img { 
+      width: 250px; 
+      height: 250px; 
+      object-fit: cover; 
+      border-radius: 50%; 
+      border: 4px solid #006064; 
+      display: block; 
+      margin: 0 auto 15px auto; }
+    .icon-container { 
+      display: flex; 
+      justify-content: center; gap: 20px; }
+    .icon { 
+      width: 35px; 
+      height: 35px; 
+      transition: 0.3s; }
+    .icon:hover { 
+      transform: translateY(-10px);}
+    
+      /* 5. Navigation */
+    .top { 
+      flex-direction: row !important; 
+      gap: 10px; 
+      padding: 12px; }
+    .nav-btn { 
+      flex: 1; 
+      padding: 10px; 
+      border: none; 
+      border-radius: 4px; 
+      background: #eee; 
+      cursor: pointer; 
+      font-weight: 600; color: #555; }
+    .nav-btn.active { 
+      background: #006064; 
+      color: white; }
 
-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
+    /* 6. Tabs */
+    .tab-content { display: none; }
+    .active-content { display: block; }
 
-h1 {
-  margin-bottom: 5px;
-}
+    /* 7. New Skills Styling */
+    #skills {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .skills-header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 10;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+      color: #006064;
+    }
 
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
+    .expandable-content {
+      overflow-y: auto;
+      flex: 1;
+      padding-top: 10px;
+    }
+    .skills-title {
+      display: block;
+      font-weight: bold;
+      color: #006064;
+      margin-bottom: 6px;
+    }
+    .experience-note { 
+      font-size: 0.8em; 
+      color: #666; 
+      margin-top: 10px; 
+    }
+    .skills-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .skills-column h4 { 
+      margin-bottom: 16px; 
+      font-size: 1.1rem; 
+      color: #006064; 
+    }
+    .skills-column ul { 
+      list-style: none; 
+      padding-left: 0; 
+      margin: 0; }
+    .skills-column li {
+      background-color: #f9f9f9;
+      margin-bottom: 12px;
+      padding: 15px;
+      border-radius: 5px 20px 5px 5px;
+      border-left: 4px solid #006064;
+      transition: 0.2s ease;
+    }
+    .skill-line { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: baseline; 
+    }
+    .stars { 
+      color: #f5b301; 
+      font-weight: bold; 
+      flex-shrink: 0; 
+    }
+    .skills-column small { 
+      display: block; 
+      color: #555; 
+      font-size: 0.85em; 
+      margin-top: 8px; 
+      line-height: 1.3; 
+    }
 
-a {
-  color: #007acc;
-  text-decoration: none;
-}
+    /* PROJECT LIST */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-top: 20px;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #eee;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: 0.2s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+    }
+    .project-card h3 {
+      margin: 0;
+      border-bottom: 1px solid #eee;
+    }
+    .project-card h3 a {
+      display: block;
+      padding: 20px;
+      font-size: 1.4rem;
+      color: #006064;
+      text-decoration: none;
+    }
+    .project-content {
+      display: flex;
+      width: 100%;
+    }
+    .project-link {
+      width: 50%;
+      display: block;
+      text-decoration: none;
+    }
+    .project-img {
+      width: 100%;
+    }
+    .project-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      padding: 10px;
+    }
+    .project-info {
+      width: 50%;
+      padding: 10px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+    }
+    .project-info p {
+      margin: 0 0 12px 0;
+      color: #333;
+      line-height: 1.6;
+    }
+    .project-card p:last-child {
+      margin-bottom: 0;
+    }
+    .info-card {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #eee;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: 0.2s ease;
+    }
+    .info-card h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: #006064;
+      font-size: 1.5rem;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    .info-card p:last-child {
+      margin-bottom: 0;
+    }
+    .company-logos { 
+      margin: 40px 0; 
+    } .company-logos img { 
+      max-height: 30px; 
+      width: auto; 
+      object-fit: contain; 
+    }
 
-section {
-  margin-bottom: 6px;
-}
+    .nav-btn.skills-btn {
+      display: none;
+    }
+    .mobile-only-skills {
+      display: none;
+    }
 
-/* ==========================
-   Icons and Company Logos
-========================== */
-.icon-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  margin: 20px 0;
-}
-
-.icon-container img.icon {
-  width: 40px;
-  height: 40px;
-}
-
-.company-logos {
-  margin: 40px 0;
-}
-
-.company-logos img {
-  max-height: 30px;
-  width: auto;
-  object-fit: contain;
-}
-
-/* ==========================
-   Images
-========================== */
-img.content-image {
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-  border-radius: 4px;
-}
-
-/* ==========================
-   Slider Section
-========================== */
-.slider-section {
-  max-width: 800px;
-  margin: 0 auto 40px auto;
-}
-
-.slider-container {
-  overflow: hidden;
-  width: 100%;
-  border-radius: 5px;
-}
-
-.slider-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-  min-width: 100%;
-}
-
-.slider-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 100px;
-  margin: 30px 0;
-}
-
-.slider-controls button.prev,
-.slider-controls button.next {
-  width: 40px;
-  height: 40px;
-  font-size: 1.5rem;
-  background: rgba(0,0,0,0.3);
-  color: #fff;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.slider-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.slider-dots .dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #ccc;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.slider-dots .dot.active {
-  background-color: #007acc;
-}
-
-/* ==========================
-   Expandable Sections
-========================== */
-.expandable-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  font-weight: bold;
-  background-color: #f0f0f0;
-  padding: 12px 24px 12px 18px;
-  border-radius: 5px 20px 5px 5px;
-  /* border-radius: 5px; */
-  transition: background-color 0.3s, color 0.3s;
-  margin-bottom: 12px;
-}
-
-.expandable-header:hover {
-  background-color: #dcdcdc;
-}
-
-.expandable-header .chevron {
-  font-size: 1.5rem;
-  transition: transform 0.5s ease;
-}
-
-.expandable-section.active .chevron {
-  transform: rotate(90deg);
-}
-
-.expandable-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.6s ease;
-  padding: 0;
-}
-
-.expandable-content > *:first-child {
-  margin-top: 20px;
-}
-
-.expandable-section.active .expandable-content {
-  max-height: 3000px;
-}
-
-.expandable-content > * {
-  margin-bottom: 1em;
-}
-
-/* ==========================
-   Skills Section
-========================== */
-.skills-container {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.skills-column {
-  flex: 1;
-  min-width: 280px;
-}
-
-.skills-column h4 {
-  margin-bottom: 16px;
-  font-size: 1.1rem;
-}
-
-.skills-column ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-.skills-column li {
-  margin-bottom: 12px;
-  background-color: #f0f0f0;
-  margin-bottom: 12px;
-  padding: 18px 12px 36px;
-  border-radius: 5px 20px 5px 5px
-}
-
-.skill-line {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.skill-line span:first-child {
-  font-weight: normal;
-}
-
-.stars {
-  color: #f5b301;
-  font-weight: bold;
-  flex-shrink: 0;
-}
-
-.skills-column small {
-  display: block;
-  margin-left: 15px;
-  color: #555;
-  font-size: 0.9rem;
-  margin-top: 2px;
-}
-
-/* ==========================
-   Responsive Styles
-========================== */
-@media (max-width: 768px) {
-  body {
-    margin: 20px auto;
-    padding: 0 10px;
+/* =========================
+   MOBILE RESPONSIVE STYLES
+========================= */
+@media (max-width: 899px) {
+  .nav-btn.skills-btn {
+    display: inline-block;
   }
-  h1 { font-size: 1.8rem; }
-  h2 { font-size: 1.4rem; margin-bottom: 20px; }
-  p { font-size: 1rem; }
-  .company-logos img { max-height: 24px; }
-  .icon-container { gap: 30px; }
-  .icon-container img.icon { width: 30px; height: 30px; }
-  .slider-controls button.prev,
-  .slider-controls button.next { width: 36px; height: 36px; font-size: 1.3rem; }
+  .mobile-only-skills {
+    display: none;
+  }
+  .mobile-only-skills.active-content {
+    display: block;
+  }
+  .grid-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    overflow: auto;
+    height: auto;
+  }
+  /* hide right sidebar on mobile */
+  .right {
+    display: none;
+  }
+
+
+    body {
+    font-size: 15px;
+  }
+
+  .grid-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    /* gap: 10px; */
+  }
+
+  .box {
+    padding: 16px;
+  }
+
+  /* Header */
+  .header {
+    padding: 20px 10px;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  /* Profile Image */
+  .headshot img {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* Navigation */
+  .top {
+    flex-direction: column !important;
+    gap: 8px;
+  }
+
+  .nav-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+  }
+
+  /* Prevent sidebars from scrolling independently */
+  .middle,
+  .right,
+  .left {
+    overflow: visible !important;
+  }
+
+  /* Project Cards */
+  .project-content {
+    flex-direction: column;
+  }
+
+  .project-link,
+  .project-info {
+    width: 100%;
+  }
+
+  .project-info {
+    padding: 18px;
+  }
+
+  .project-card h3 a {
+    font-size: 1.1rem;
+    padding: 16px;
+  }
+
+  .project-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 0;
+  }
+
+  /* Skills */
+  .skills-container {
+    gap: 12px;
+  }
+
+  .skills-column li {
+    padding: 12px;
+  }
+
+  .skill-line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .stars {
+    font-size: 0.9rem;
+  }
+
+  /* Info Cards */
+  .info-card {
+    padding: 18px;
+  }
+
+  .info-card h2 {
+    font-size: 1.3rem;
+  }
+
+  /* Paragraphs */
+  p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* Company Logos */
+  .company-logos img {
+    max-width: 140px;
+    height: auto;
+  }
+
+  /* Icons */
+  .icon-container {
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Lists */
+  ul {
+    padding-left: 18px;
+  }
+
+  /* Prevent horizontal scrolling */
+  img,
+  iframe,
+  table,
+  pre {
+    max-width: 100%;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
 }
 
-@media (max-width: 480px) {
-  h1 { font-size: 1.5rem; }
-  h2 { font-size: 1.2rem; }
-  p, li { font-size: 0.95rem; }
-  .slider-controls button.prev,
-  .slider-controls button.next { width: 32px; height: 32px; }
-}
-</style>
-
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Tareq Haboukh</h1>
-    <p>Solving Business Challenges with Insightful Analytics & Automation</p>
 
-    <div class="icon-container">
-        <a href="mailto:&#116;&#097;&#114;&#101;&#113;&#104;&#097;&#098;&#111;&#117;&#107;&#104;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;" aria-label="Send email to Tareq Haboukh">
-          <!-- https://cdn-icons-png.flaticon.com/512/732/732200.png -->
-          <img
-            src="images/gmail.png"
-            alt="Gmail Icon"
-            class="icon"
-          />
-        </a>
-        <!-- https://cdn-icons-png.flaticon.com/512/909/909212.png -->
-        <a href="Tareq_Haboukh_Resume.pdf" download aria-label="Download Resume">
-          <img
-            src="images/pdf.png"
-            alt="Download as PDF"
-            class="icon"
-          />
-        </a>
-        <!-- https://cdn-icons-png.flaticon.com/512/174/174857.png -->
-        <a href="https://www.linkedin.com/in/tareqhaboukh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-          <img
-            src="images/linkedin.png"
-            alt="LinkedIn Logo"
-            class="icon"
-          />
-        </a>
-        <!-- https://cdn-icons-png.flaticon.com/512/733/733609.png -->
-        <a href="https://github.com/Tareqhaboukh" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
-          <img
-            src="images/github.png"
-            alt="GitHub Logo"
-            class="icon"
-          />
-        </a>
-    </div>
+  <div class="grid-layout">
+    <header class="box header">
+      <h1 style="margin:0">Tareq Haboukh</h1>
+    </header>
 
-  </header>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Dynamic professional with 7+ years of experience in business and data analytics. Well-versed in performance monitoring, ETL workflows, predictive analytics, and data visualization using Power BI and Tableau. Skilled in delivering actionable insights, optimizing processes, and collaborating across cross-functional teams to drive business performance and realize process improvements.</p>
-  </section>
-
-  <section id="skills" class="expandable-section">
-    <div class="expandable-header">
-      <span>Technical and Business Expertise</span>
-      <span class="chevron">–</span>
-    </div>
-
-    <div class="expandable-content">
-      <p class="experience-note">⭐ indicates years of hands-on experience</p>
-
-      <div class="skills-container">
-        <!-- Technical Column -->
-        <div class="skills-column">
-          <h4>Technical & Analytical</h4>
-          <ul class="skills-list">
-            <li>
-              <span class="skill-line">
-                <span>SQL</span>
-                <span class="stars">⭐⭐⭐⭐⭐⭐</span>
-              </span>
-              <small>Joins (INNER, LEFT, RIGHT, FULL), Common Table Expressions (CTEs), Window Functions, Variables & Parameters, Query Writing & Optimization</small>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Python</span>
-                <span class="stars">⭐⭐⭐</span>
-              </span>
-              <small>Pandas, Flask, Scripting, Data Cleaning & Transformation</small>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Power BI</span>
-                <span class="stars">⭐⭐⭐⭐⭐</span>
-              </span>
-              <small>Data modeling, DAX, Power Query, KPI dashboards, data transformation, report automation</small>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Excel</span>
-                <span class="stars">⭐⭐⭐⭐⭐⭐⭐</span>
-              </span>
-              <small>Power Query, PivotTables, advanced formulas</small>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>ETL & data transformation</span>
-                <span class="stars">⭐⭐⭐⭐⭐⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>API integration</span>
-                <span class="stars">⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Predictive analytics</span>
-                <span class="stars">⭐⭐⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Statistical modeling</span>
-                <span class="stars">⭐⭐⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Data mining</span>
-                <span class="stars">⭐⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Trend analysis</span>
-                <span class="stars">⭐⭐⭐⭐⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Workflow automation</span>
-                <span class="stars">⭐⭐⭐⭐⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>UAT & implementation</span>
-                <span class="stars">⭐⭐⭐</span>
-              </span>
-            </li>
-          </ul>
+    <!-- LEFT SIDEBAR -->
+    <aside class="box left">
+      <div class="stack-item">
+        <div class="headshot">
+          <img src="images/Headshot.jpg" alt="Tareq Haboukh">
         </div>
-
-        <!-- Business Column -->
-        <div class="skills-column">
-          <h4>Business & Collaboration</h4>
-          <ul class="skills-list">
-            <li>
-              <span class="skill-line">
-                <span>Requirements gathering</span>
-                <span class="stars">⭐⭐⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Process optimization</span>
-                <span class="stars">⭐⭐⭐⭐⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Business process mapping</span>
-                <span class="stars">⭐⭐⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Operational analytics</span>
-                <span class="stars">⭐⭐⭐⭐⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>KPI reporting</span>
-                <span class="stars">⭐⭐⭐⭐⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Stakeholder engagement</span>
-                <span class="stars">⭐⭐⭐⭐⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Cross-functional teamwork</span>
-                <span class="stars">⭐⭐⭐⭐⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Executive dashboard development</span>
-                <span class="stars">⭐⭐⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Project documentation</span>
-                <span class="stars">⭐⭐⭐</span>
-              </span>
-              <small>Confluence, SharePoint</small>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>SLA assessment</span>
-                <span class="stars">⭐⭐⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Metadata management</span>
-                <span class="stars">⭐⭐⭐</span>
-              </span>
-            </li>
-            <li>
-              <span class="skill-line">
-                <span>Team training and support</span>
-                <span class="stars">⭐⭐⭐⭐⭐</span>
-              </span>
-            </li>
-          </ul>
+        <div style="text-align: center;">
+          <h2 style="margin: 0; font-size: 1.2em;">Business Analyst</h2>
+          <p style="color: #666; font-size: 0.85em;">Solving Business Challenges with Insightful Analytics & Automation</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="why-me" class="expandable-section">
-    <div class="expandable-header">
-      <span>What Makes Me Stand Out</span>
-      <span class="chevron">–</span>
-    </div>
-
-    <div class="expandable-content">
-      <p>
-        My journey started at Careem during its early start-up phase, where I was one of the first members of the operations team handling driver support. This quickly evolved into working with the business management software, digging into problems at their core, and finding practical solutions. Along the way, I gained exposure to multiple business areas including sales, marketing, finance, and business intelligence. I was drawn to analytics, where I began writing my own queries and creating KPIs, becoming the go-to person for new projects and a pivotal contributor to the company’s rapid growth and eventual acquisition by Uber for USD 3.1 billion. Drawn to analytics and eager to strengthen my skills, I pursued further education in Canada, earning a Postgraduate Certificate in Business Analytics at Seneca Polytechnic to complement my Bachelor’s degree in Business Administration.
-      </p>
-      <p>
-        After completing my studies, I joined EllisDon Corporation in my first professional role in Canada, where I built expertise in requirements gathering, UAT testing and implementation, workflow optimization, and delivering actionable insights. Working across teams, I supported initiatives that improved operational efficiency and reinforced my passion for data-driven problem-solving. In this role, I consistently sought opportunities to enhance workflows beyond the initial request, researching and implementing future-focused solutions that created lasting impact and established strong foundations within an emerging division.
-      </p>
-      <p>
-        I am motivated by solving real-world problems, helping people make informed decisions, and enabling opportunities through thoughtful and effective use of data. I find purpose in creating measurable, positive outcomes for both individuals and organizations, and I take pride in building solutions that continue to deliver value long after implementation.
-      </p>
-    </div>
-  </section>
-
-  <section id="projects" class="expandable-section">
-    <div class="expandable-header">
-      <span>Key achievements and projects</span>
-      <span class="chevron">–</span>
-    </div>
-
-    <div class="expandable-content">
-      <div class="company-logos">
-        <img src="images/EllisdonLogo.png" alt="EllisDon Logo" />
+      <div class="stack-item">
+        <div class="icon-container">
+          <a href="mailto:&#116;&#097;&#114;&#101;&#113;&#104;&#097;&#098;&#111;&#117;&#107;&#104;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;" aria-label="Send email to Tareq Haboukh">
+            <!-- https://cdn-icons-png.flaticon.com/512/732/732200.png -->
+            <img
+              src="images/gmail.png"
+              alt="Gmail Icon"
+              class="icon"
+            />
+          </a>
+          <!-- https://cdn-icons-png.flaticon.com/512/909/909212.png -->
+          <a href="Tareq_Haboukh_Resume.pdf" download aria-label="Download Resume">
+            <img
+              src="images/pdf.png"
+              alt="Download as PDF"
+              class="icon"
+            />
+          </a>
+          <!-- https://cdn-icons-png.flaticon.com/512/174/174857.png -->
+          <a href="https://www.linkedin.com/in/tareqhaboukh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+            <img
+              src="images/linkedin.png"
+              alt="LinkedIn Logo"
+              class="icon"
+            />
+          </a>
+          <!-- https://cdn-icons-png.flaticon.com/512/733/733609.png -->
+          <a href="https://github.com/Tareqhaboukh" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+            <img
+              src="images/github.png"
+              alt="GitHub Logo"
+              class="icon"
+            />
+          </a>
+        </div>
       </div>
-        <p><strong>Power BI Reporting Initiative:</strong> Led a Power BI initiative to build dashboards and create specific and complex reports that serve multiple sites based on their individual requirements, by gathering inputs from project agreements or directly communicating with site GMs. This enabled fast-paced, agile delivery of ad hoc reports.</p>
-        <p><strong>Energy Reporting and ETL Optimization:</strong> Optimized ETL pipelines for energy reports to enable faster, autonomous data collection and integrated government weather data into reporting databases for richer context and analysis.</p>
-        <p><strong>Contractors Insurance Compliance:</strong> Assessed the platform used for contractors’ insurance compliance by matching raw data with D365 and site visit records, uncovering inaccuracies that increased company risk. My insights led to the decision to transition operations in-house, lowering risk, improving validation accuracy, streamlining processes, and removing compliance fees for contractors, which in turn reduced company costs.</p>
-        <p><strong>Survey Automation and Vendor Management:</strong> Managed the survey process and identified a new vendor after assessing multiple options to improve performance. Fully automated the process from filtering data and assigning services to distributing surveys and building a Power BI report that sends email notifications with the data ready to be shared when surveys are due.</p>
-        <p><strong>Quality Assurance Tool:</strong> Contributed to building a Flask-based solution that supported quality audits during construction and maintenance, tracked compliance against Project Agreement requirements, and provided visual insights that improved audit efficiency and oversight.</p>
+    </aside>
 
-      <div class="company-logos">
-        <img src="images/CareemLogo.png" alt="Careem Logo" /> 
-      </div>
-        <p><strong>Compliance Project:</strong> Led the initial phase of the driver permit application process after Careem received its operating license. Designed workflows, managed driver data, and built databases linked to performance and quality teams to prioritize permits for high-performing drivers.</p>
-        <p><strong>Scooter Delivery Launch:</strong> Analyzed scooter driver performance in Jordan, showing better delivery times and trips per hour compared to regular drivers. Worked with third parties to plan demand and helped introduce installment plans, making it easier for new drivers to join and supporting the scooter delivery launch.</p>
-        <p><strong>Geo-fenced Locations:</strong> Analyzed hundreds of thousands of GPS data points to identify high-density locations and created geo-fenced pick-up points on the app, enhancing customer experience by guiding riders to optimal pick-up spots.</p>
-        <p><strong>Performance Project:</strong> Developed a weekly plan addressing peak-hour demand by forming a task force of high-performing drivers and motivating them with targeted in-app messages and incentives.</p>
-    </div>
-    </section>
+    <!-- NAVIGATION -->
+    <nav class="box top">
+      <button class="nav-btn active" onclick="showContent('about')">About</button>
+      <button class="nav-btn" onclick="showContent('projects')">Projects</button>
+      <button class="nav-btn" onclick="showContent('experience')">Experience</button>
+      <button class="nav-btn skills-btn" onclick="showContent('skills-mobile')">Skills</button>
+    </nav>
 
-<section id="samples-of-work" class="expandable-section">
-  <div class="expandable-header">
-    <span>Samples of My Work</span>
-    <span class="chevron">–</span>
-  </div>
-
-  <div class="expandable-content">
-    <div class="slider-section">
-
-      <div class="slider-controls">
-        <button class="prev">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M15 6l-6 6 6 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-
-        <div class="slider-dots"></div>
-
-        <button class="next">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M9 6l6 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
+    <!-- MAIN CONTENT -->
+    <main class="box middle">
+      <div id="about" class="tab-content active-content">
+        <div class="info-card">
+          <h2 style="color: #006064;">About Me</h2>
+          <p>Dynamic professional with 7+ years of experience in business and data analytics. Well-versed in performance monitoring, ETL workflows, predictive analytics, and data visualization using Power BI and Tableau. Skilled in delivering actionable insights, optimizing processes, and collaborating across cross-functional teams to drive business performance and realize process improvements</p>
+        </div>
+        <div class="info-card">
+          <h2 style="color: #006064;">What Makes Me Stand Out</h2>
+          <p>My journey started at Careem during its early start-up phase, where I was one of the first members of the operations team handling driver support. This quickly evolved into working with the business management software, digging into problems at their core, and finding practical solutions. Along the way, I gained exposure to multiple business areas including sales, marketing, finance, and business intelligence. I was drawn to analytics, where I began writing my own queries and creating KPIs, becoming the go-to person for new projects and a pivotal contributor to the company’s rapid growth and eventual acquisition by Uber for USD 3.1 billion. Drawn to analytics and eager to strengthen my skills, I pursued further education in Canada, earning a Postgraduate Certificate in Business Analytics at Seneca Polytechnic to complement my Bachelor’s degree in Business Administration.</p>
+          <p>After completing my studies, I joined EllisDon Corporation in my first professional role in Canada, where I built expertise in requirements gathering, UAT testing and implementation, workflow optimization, and delivering actionable insights. Working across teams, I supported initiatives that improved operational efficiency and reinforced my passion for data-driven problem-solving. In this role, I consistently sought opportunities to enhance workflows beyond the initial request, researching and implementing future-focused solutions that created lasting impact and established strong foundations within an emerging division.</p>
+          <p>I am motivated by solving real-world problems, helping people make informed decisions, and enabling opportunities through thoughtful and effective use of data. I find purpose in creating measurable, positive outcomes for both individuals and organizations, and I take pride in building solutions that continue to deliver value long after implementation.</p>
+        </div>
       </div>
 
-      <div class="slider-container">
-        <div class="slider-track">
-            <!-- International Business Report -->
-            <div class="slide">
+      <div id="projects" class="tab-content">
+        <h2 style="color: #006064;">Projects</h2>
+        <div class="project-list">
 
-              <h3>International Business: Foreign Expansion Plan</h3>
-
-              <a href="Foreign_Expansion_Assessment.html" target="_blank" rel="noopener noreferrer">
-                <img 
-                  src="images/ConceptMap.png" 
-                  alt="Graco Foreign Expansion Plan report preview" 
-                  class="content-image" 
-                />
-              </a>
-
-              <p>
-                This report analyzes Graco Inc.’s potential expansion into Argentina through an international business and strategic management perspective. The analysis evaluates Argentina’s institutional environment, macroeconomic risks, labor market conditions, investment framework, and trade networks, while examining how Graco’s transnational strategy, premium differentiation, engineering capabilities, and distribution model align with the market.
-              </p>
-
-              <p>
-                <a href="Foreign_Expansion_Assessment.html" target="_blank" rel="noopener noreferrer">
-                  Read the full report: Graco’s Foreign Expansion Plan &raquo;
-                </a>
-              </p>
-
-            </div>
-
-          <!-- Flask App -->
-          <div class="slide">
-
+          <div class="project-card">
             <h3>
-              <a href="https://project-one-ofo6.onrender.com" target="_blank" rel="noopener" title="Open in new tab">
-                Live Flask App: Project One <img src="https://cdn-icons-png.flaticon.com/128/12690/12690013.png" alt="Open in new tab" width="25" style="vertical-align:text-bottom;">
+              <a href="Foreign_Expansion_Assessment.html" target="_blank" rel="noopener noreferrer">
+                International Business: Foreign Expansion Plan
               </a>
             </h3>
-
-            <a href="https://project-one-ofo6.onrender.com" target="_blank" rel="noopener noreferrer" title="Open Flask App">
-              <img 
-                src="images/AppGif.gif" 
-                alt="Flask App Demo" 
-                class="content-image" 
-                style="width: 60%; height: auto; cursor: pointer; display: block; margin: 0 auto;"
-              />
-            </a>
-
-            <p>
-              This is a Flask-based web application I developed and deployed using Render. It demonstrates my ability to build and host a Python web app with dynamic functionality and API endpoints. 
-              View the source code on <a href="https://github.com/Tareqhaboukh/project_one" target="_blank" rel="noopener">GitHub</a>. 
-              <strong>Create a dummy user or login as guest and test the API!</strong><br>
-              The app allows you to manage users, add and track invoices, handle vendors, ask questions with the AI chat, view analytics, and access the API all in one integrated platform.
-            </p>
-
-            <p>
-              <a href="api.html" target="_blank" rel="noopener">View the API documentation &raquo;</a>
-            </p>
-
-            <p>
-              <a href="https://hoppscotch.io/?method=GET&url=https://project-one-ofo6.onrender.com/api/v1/users/" 
-                target="_blank" rel="noopener noreferrer">
-                Test the API on Hoppscotch &raquo;
+            <div class="project-content">
+              <a class="project-link" href="Foreign_Expansion_Assessment.html" target="_blank" rel="noopener noreferrer">
+                <div class="project-img">
+                  <img src="images/ConceptMap.png" alt="Graco Foreign Expansion Plan report preview"/>
+                </div>
               </a>
-            </p>
+              <div class="project-info">
+                <p>
+                  This report analyzes Graco Inc.’s potential expansion into Argentina through an international business and strategic management perspective. The analysis evaluates Argentina’s institutional environment, macroeconomic risks, labor market conditions, investment framework, and trade networks, while examining how Graco’s transnational strategy, premium differentiation, engineering capabilities, and distribution model align with the market.
+                </p>
+              </div>
+            </div>
           </div>
 
-          <!-- Power BI Pipeline -->
-          <div class="slide">
-
-          <h3>Power BI Weather Data Pipeline</h3>
-
-            <a href="pipeline.html" target="_blank" rel="noopener">
-              <img src="images/pipeline_preview.png" alt="Power BI pipeline preview" class="content-image" />
-            </a>
-
-            <p>
-              This project demonstrates a dynamic Power BI pipeline that retrieves and processes historical weather data from Environment Canada. It uses Power Query (M) to extract file metadata, filter by year, and combine multiple CSV files into a structured dataset.
-            </p>
-
-            <p>
-              <a href="pipeline.html" target="_blank" rel="noopener">View the pipeline documentation &raquo;</a>
-            </p>
+          <div class="project-card">
+            <h3>
+              <a href="https://project-one-ofo6.onrender.com" target="_blank" rel="noopener noreferrer">
+                Live Flask App: Project One
+              </a>
+            </h3>
+            <div class="project-content">
+              <a class="project-link" href="https://project-one-ofo6.onrender.com" target="_blank" rel="noopener noreferrer">
+                <div class="project-img">
+                  <img src="images/AppGif.gif" alt="Flask App Demo"/>
+                </div>
+              </a>
+              <div class="project-info">
+                <p>
+                  This is a Flask-based web application I developed and deployed using Render. It demonstrates my ability to build and host a Python web app with dynamic functionality and API endpoints. 
+                  View the source code on <a href="https://github.com/Tareqhaboukh/project_one" target="_blank" rel="noopener">GitHub</a>.
+                </p>
+                <p>
+                  <strong>Create a dummy user or login as guest and test the API!</strong>
+                </p>
+                <p>
+                  The app allows you to manage users, add and track invoices, handle vendors, ask questions with the AI chat, view analytics, and access the API all in one integrated platform.
+                </p>
+                <p>
+                  <a href="api.html" target="_blank" rel="noopener">View the API documentation &raquo;</a>
+                </p>
+                <p>
+                  <a href="https://hoppscotch.io/?method=GET&url=https://project-one-ofo6.onrender.com/api/v1/users/" 
+                    target="_blank" rel="noopener noreferrer">
+                    Test the API on Hoppscotch &raquo;
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
-
-          <!-- Governance and Accountability Report -->
-          <div class="slide">
-
-            <h3>Governance and Accountability Report</h3>
-
-            <a href="EllisDon_Governance_Report.html" target="_blank" rel="noopener noreferrer">
-              <img 
-                src="images/Construction.jpg" 
-                alt="EllisDon Governance Report preview" 
-                class="content-image" 
-              />
-            </a>
-
-            <p>
-              This report analyzes governance and accountability issues at EllisDon with a focus on health and safety management in high-risk construction operations. It evaluates gaps between the company’s stated ESG and safety commitments and their execution on multi-employer job sites, particularly in relation to subcontractor oversight, critical risk controls, and escalation practices. The analysis draws on recent regulatory actions, industry benchmarks, and applicable occupational health and safety legislation to assess operational, legal, and reputational risks. It further examines how EllisDon’s current governance framework aligns with industry expectations and proposes strategic recommendations to strengthen safety governance, improve contractor accountability, and enhance board-level visibility over high-risk activities.
-            </p>
-         
-            <p>
+        
+          <div class="project-card">
+            <h3>
+              <a href="pipeline.html" target="_blank" rel="noopener noreferrer">
+                Power BI Weather Data Pipeline
+              </a>
+            </h3>
+            <div class="project-content">
+              <a class="project-link" href="pipeline.html" target="_blank" rel="noopener noreferrer">
+                <div class="project-img">
+                  <img src="images/pipeline_preview.png" alt="Power BI pipeline preview"/>
+                </div>
+              </a>
+              <div class="project-info">
+                <p>
+                  This project demonstrates a dynamic Power BI pipeline that retrieves and processes historical weather data from Environment Canada. It uses Power Query (M) to extract file metadata, filter by year, and combine multiple CSV files into a structured dataset.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <h3>
               <a href="EllisDon_Governance_Report.html" target="_blank" rel="noopener noreferrer">
-                Read the full report: Governance and Accountability Report &raquo;
+                Governance and Accountability Report
               </a>
-            </p>
-
-            <p>
-              Photo by <a href="https://unsplash.com/@dianamia?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">C Dustin</a> on <a href="https://unsplash.com/photos/a-group-of-tall-buildings-under-a-cloudy-blue-sky-91AQt9p4Mo8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-            </p>
-
+            </h3>
+            <div class="project-content">
+              <a class="project-link" href="EllisDon_Governance_Report.html" target="_blank" rel="noopener noreferrer">
+                <div class="project-img">
+                  <img src="images/Construction.jpg" alt="EllisDon Governance Report preview"/>
+                </div>
+              </a>
+              <div class="project-info">
+                <p>
+                  This report analyzes governance and accountability issues at EllisDon with a focus on health and safety management in high-risk construction operations. It evaluates gaps between the company’s stated ESG and safety commitments and their execution on multi-employer job sites, particularly in relation to subcontractor oversight, critical risk controls, and escalation practices. The analysis draws on recent regulatory actions, industry benchmarks, and applicable occupational health and safety legislation to assess operational, legal, and reputational risks. It further examines how EllisDon’s current governance framework aligns with industry expectations and proposes strategic recommendations to strengthen safety governance, improve contractor accountability, and enhance board-level visibility over high-risk activities.
+                </p>
+              </div>
+            </div>
           </div>
 
-          <!-- Blog Post -->
-          <div class="slide">
-            <h3>Blog Post: Careem's Data Breach</h3>
-
-            <a href="essay.html" target="_blank" rel="noopener noreferrer" aria-label="Read my blog post about Careem's Data Breach">
-              <img src="images/careem.jpg" alt="Careem Data Breach blog post preview" class="content-image" />
-            </a>
-
-            <p>
-              A personal reflection on my experience working at Careem during the time of its data breach, sharing lessons on data security, internal response, and what it taught me about trust and transparency.
-            </p>
-
-            <p>
+          <div class="project-card">
+            <h3>
               <a href="essay.html" target="_blank" rel="noopener noreferrer" aria-label="Read my blog post about Careem's Data Breach">
-                Read my blog post on Careem's Data Breach: What I Learned from the Inside &raquo;
+                Blog Post: Careem's Data Breach
               </a>
-            </p>
+            </h3>
+            <div class="project-content">
+              <a class="project-link" href="essay.html" target="_blank" rel="noopener noreferrer">
+                <div class="project-img">
+                  <img src="images/careem.jpg" alt="Careem Data Breach blog post preview"/>
+                </div>
+              </a>
+              <div class="project-info">
+                <p>
+                  A personal reflection on my experience working at Careem during the time of its data breach, sharing lessons on data security, internal response, and what it taught me about trust and transparency.
+                </p>
+              </div>
+            </div>
           </div>
-
-          <!-- Capstone Project -->
-          <div class="slide">
-            <h3>Business Analytics Consulting Capstone Project</h3>
-
-            <a href="capstone.html" target="_blank" rel="noopener noreferrer">
-              <img src="images/capstone_preview.png" alt="Capstone project preview" class="content-image" />
-            </a>
-
-            <p>
-              This project was completed as part of my final semester at Seneca College. It analyzed Canadian cell phone plans compared to U.S. offerings, with the goal of providing a data-driven assessment of how Canadian plans perform in terms of value, features, and cost. Our team developed a scoring model that incorporated both qualitative and quantitative data.
-            </p>
-
-            <p>
+        
+          <div class="project-card">
+            <h3>
               <a href="capstone.html" target="_blank" rel="noopener noreferrer">
-                📄 View Full Report and Presentation
+                Business Analytics Consulting Capstone Project
               </a>
-            </p>
+            </h3>
+            <div class="project-content">
+              <a class="project-link" href="capstone.html" target="_blank" rel="noopener noreferrer">
+                <div class="project-img">
+                  <img src="images/capstone_preview.png" alt="Capstone project preview"/>
+                </div>
+              </a>
+              <div class="project-info">
+                <p>
+                  This project was completed as part of my final semester at Seneca College. It analyzed Canadian cell phone plans compared to U.S. offerings, with the goal of providing a data-driven assessment of how Canadian plans perform in terms of value, features, and cost. Our team developed a scoring model that incorporated both qualitative and quantitative data.
+                </p>
+                <p><strong>My contribution:</strong></p>
+                <ul>
+                  <li>Identified key columns from the dataset (Table 3) and cleaned and normalized the data</li>
+                  <li>Defined the core features to assess (e.g. data, coverage, extras)</li>
+                  <li>Designed the scoring model and normalization method</li>
+                  <li>Assigned importance weights based on appendix data</li>
+                  <li>Developed metrics like points per dollar for comparison</li>
+                  <li>Created visualizations and comparative graphs</li>
+                  <li>Drew final insights and supported the report narrative</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <footer class="box bottom" style="padding:20px; background:#e0f2f1; text-align:center;">
+            <h3 style="margin: 0; font-size: 1em;">Thank you for visiting!</h3>
+            <p>I appreciate your time and interest in my work. If you’d like to discuss projects, opportunities, or just say hello, feel free to reach out!</p>
+          </footer>
+        </div>
+      </div>
 
-            <h3>What I contributed</h3>
-            <ul>
-              <li>Identified key columns from the dataset (Table 3) and cleaned and normalized the data</li>
-              <li>Defined the core features to assess (e.g. data, coverage, extras)</li>
-              <li>Designed the scoring model and normalization method</li>
-              <li>Assigned importance weights based on appendix data</li>
-              <li>Developed metrics like points per dollar for comparison</li>
-              <li>Created visualizations and comparative graphs</li>
-              <li>Drew final insights and supported the report narrative</li>
-            </ul>
+      <div id="experience" class="tab-content">
+        <h2 style="color: #006064;">Key achievements and projects</h2>
+
+      <div class="info-card">
+        <div class="company-logos">
+          <img src="images/EllisdonLogo.png" alt="EllisDon Logo" />
+        </div>
+          <p><strong>Power BI Reporting Initiative:</strong> Led a Power BI initiative to build dashboards and create specific and complex reports that serve multiple sites based on their individual requirements, by gathering inputs from project agreements or directly communicating with site GMs. This enabled fast-paced, agile delivery of ad hoc reports.</p>
+          <p><strong>Energy Reporting and ETL Optimization:</strong> Optimized ETL pipelines for energy reports to enable faster, autonomous data collection and integrated government weather data into reporting databases for richer context and analysis.</p>
+          <p><strong>Contractors Insurance Compliance:</strong> Assessed the platform used for contractors’ insurance compliance by matching raw data with D365 and site visit records, uncovering inaccuracies that increased company risk. My insights led to the decision to transition operations in-house, lowering risk, improving validation accuracy, streamlining processes, and removing compliance fees for contractors, which in turn reduced company costs.</p>
+          <p><strong>Survey Automation and Vendor Management:</strong> Managed the survey process and identified a new vendor after assessing multiple options to improve performance. Fully automated the process from filtering data and assigning services to distributing surveys and building a Power BI report that sends email notifications with the data ready to be shared when surveys are due.</p>
+          <p><strong>Quality Assurance Tool:</strong> Contributed to building a Flask-based solution that supported quality audits during construction and maintenance, tracked compliance against Project Agreement requirements, and provided visual insights that improved audit efficiency and oversight.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="company-logos">
+          <img src="images/CareemLogo.png" alt="Careem Logo" /> 
+        </div>
+          <p><strong>Compliance Project:</strong> Led the initial phase of the driver permit application process after Careem received its operating license. Designed workflows, managed driver data, and built databases linked to performance and quality teams to prioritize permits for high-performing drivers.</p>
+          <p><strong>Scooter Delivery Launch:</strong> Analyzed scooter driver performance in Jordan, showing better delivery times and trips per hour compared to regular drivers. Worked with third parties to plan demand and helped introduce installment plans, making it easier for new drivers to join and supporting the scooter delivery launch.</p>
+          <p><strong>Geo-fenced Locations:</strong> Analyzed hundreds of thousands of GPS data points to identify high-density locations and created geo-fenced pick-up points on the app, enhancing customer experience by guiding riders to optimal pick-up spots.</p>
+          <p><strong>Performance Project:</strong> Developed a weekly plan addressing peak-hour demand by forming a task force of high-performing drivers and motivating them with targeted in-app messages and incentives.</p>
+      </div>
+
+      </div>
+      
+      <div id="skills-mobile" class="tab-content mobile-only-skills">
+        <div class="skills-header">
+          <span class="skills-title">Technical & Business Expertise</span>
+          <p class="experience-note">⭐ indicates years of hands-on experience</p>
+        </div>
+
+        <div class="expandable-content">
+          <div class="skills-container">
+            <!-- Technical Column -->
+            <div class="skills-column">
+              <h4>Technical & Analytical</h4>
+              <ul>
+                <li>
+                  <span class="skill-line"><span>SQL</span><span class="stars">⭐⭐⭐⭐⭐⭐</span></span>
+                  <small>Joins (INNER, LEFT, RIGHT, FULL), Common Table Expressions (CTEs), Window Functions, Variables & Parameters, Query Writing & Optimization</small>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Python</span><span class="stars">⭐⭐⭐</span></span>
+                  <small>Pandas, Flask, Scripting, Data Cleaning & Transformation</small>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Power BI</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                  <small>Data modeling, DAX, Power Query, KPI dashboards, data transformation, report automation</small>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Microsoft Excel</span><span class="stars">⭐⭐⭐⭐⭐⭐⭐</span></span>
+                  <small>Power Query, PivotTables, advanced formulas</small>
+                </li>
+                <li>
+                  <span class="skill-line"><span>ETL & data transformation</span><span class="stars">⭐⭐⭐⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>API integration</span><span class="stars">⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Predictive analytics</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Statistical modeling</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Data mining</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Trend analysis</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Workflow automation</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>UAT & implementation</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Business Column -->
+            <div class="skills-column">
+              <h4>Business & Collaboration</h4>
+              <ul>
+                <li>
+                  <span class="skill-line"><span>Requirements gathering</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Process optimization</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Business process mapping</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Operational analytics</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>KPI reporting</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Stakeholder engagement</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Cross-functional teamwork</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Executive dashboard development</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Project documentation</span><span class="stars">⭐⭐⭐</span></span>
+                  <small>Confluence, SharePoint</small>
+                </li>
+                <li>
+                  <span class="skill-line"><span>SLA assessment</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+
+                <li>
+                  <span class="skill-line"><span>Metadata management</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Team training and support</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
 
-    </div>
+    </main>
+
+    <!-- RIGHT SIDEBAR (SKILLS) -->
+    <aside class="box right">
+      <section id="skills">
+        <div class="skills-header">
+          <span class="skills-title">Technical & Business Expertise</span>
+          <p class="experience-note">⭐ indicates years of hands-on experience</p>
+        </div>
+
+        <div class="expandable-content">
+          <div class="skills-container">
+            <!-- Technical Column -->
+            <div class="skills-column">
+              <h4>Technical & Analytical</h4>
+              <ul>
+                <li>
+                  <span class="skill-line"><span>SQL</span><span class="stars">⭐⭐⭐⭐⭐⭐</span></span>
+                  <small>Joins (INNER, LEFT, RIGHT, FULL), Common Table Expressions (CTEs), Window Functions, Variables & Parameters, Query Writing & Optimization</small>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Python</span><span class="stars">⭐⭐⭐</span></span>
+                  <small>Pandas, Flask, Scripting, Data Cleaning & Transformation</small>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Power BI</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                  <small>Data modeling, DAX, Power Query, KPI dashboards, data transformation, report automation</small>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Microsoft Excel</span><span class="stars">⭐⭐⭐⭐⭐⭐⭐</span></span>
+                  <small>Power Query, PivotTables, advanced formulas</small>
+                </li>
+                <li>
+                  <span class="skill-line"><span>ETL & data transformation</span><span class="stars">⭐⭐⭐⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>API integration</span><span class="stars">⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Predictive analytics</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Statistical modeling</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Data mining</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Trend analysis</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Workflow automation</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>UAT & implementation</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Business Column -->
+            <div class="skills-column">
+              <h4>Business & Collaboration</h4>
+              <ul>
+                <li>
+                  <span class="skill-line"><span>Requirements gathering</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Process optimization</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Business process mapping</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Operational analytics</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>KPI reporting</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Stakeholder engagement</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Cross-functional teamwork</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Executive dashboard development</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Project documentation</span><span class="stars">⭐⭐⭐</span></span>
+                  <small>Confluence, SharePoint</small>
+                </li>
+                <li>
+                  <span class="skill-line"><span>SLA assessment</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+
+                <li>
+                  <span class="skill-line"><span>Metadata management</span><span class="stars">⭐⭐⭐</span></span>
+                </li>
+                <li>
+                  <span class="skill-line"><span>Team training and support</span><span class="stars">⭐⭐⭐⭐⭐</span></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </aside>
+
+    <!-- <footer class="box bottom" style="padding:20px; background:#e0f2f1; text-align:center;">
+       <h3 style="margin: 0; font-size: 1em;">Thank you for visiting!</h3>
+       <p>I appreciate your time and interest in my work. If you’d like to discuss projects, opportunities, or just say hello, feel free to reach out!</p>
+    </footer> -->
   </div>
 
-</section>
-
-
-<section id="contact" style="text-align: center; padding: 20px 20px; background-color: #e0f7fa; border-radius: 5px 20px 5px 5px;">
-  <h2>Thank you for visiting!</h2>
-  <p>I appreciate your time and interest in my work. If you’d like to discuss projects, opportunities, or just say hello, feel free to reach out!</p>
-  <!-- <div class="icon-container">
-    <a href="mailto:tareq.haboukh@gmail.com" aria-label="Send email to Tareq Haboukh">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail Icon" class="icon" />
-    </a>
-    <a href="https://www.linkedin.com/in/tareqhaboukh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo" class="icon" />
-    </a>
-    <a href="https://github.com/Tareqhaboukh" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733609.png" alt="GitHub Logo" class="icon" />
-    </a>
-  </div> -->
-</section>
-  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7e718e7fbddb4cd3a633c2df3606669f"}'></script>
-  <script src="js/slider.js"></script>
   <script>
-    document.querySelectorAll('.expandable-section').forEach(section => {
-      section.querySelector('.expandable-header').addEventListener('click', () => {
-        section.classList.toggle('active');
-      });
-    });
+    function showContent(tabId) {
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active-content'));
+      event.currentTarget.classList.add('active');
+      document.getElementById(tabId).classList.add('active-content');
+    }
   </script>
 </body>
 </html>
