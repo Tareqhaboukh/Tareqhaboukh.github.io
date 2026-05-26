@@ -204,8 +204,9 @@
       transition: 0.2s ease;
     }
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+      transform: scale(1.01);
+      /* transform: translateY(-2px); */
+      /* box-shadow: 0 8px 16px rgba(0,0,0,0.12); */
     }
     .project-card h3 {
       margin: 0;
@@ -456,6 +457,41 @@
     overflow-x: hidden;
   }
 }
+.edu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  /* border-bottom: 1px solid #eee; */
+}
+
+.edu-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Force logo to stay left */
+.edu-logo {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Text takes remaining space */
+.edu-text {
+  flex: 1;
+  line-height: 1.5;
+}
+
+/* Optional: better spacing */
+.edu-text strong {
+  display: block;
+  margin-bottom: 4px;
+}
 
   </style>
 </head>
@@ -536,7 +572,35 @@
           <p>After completing my studies, I joined EllisDon Corporation in my first professional role in Canada, where I built expertise in requirements gathering, UAT testing and implementation, workflow optimization, and delivering actionable insights. Working across teams, I supported initiatives that improved operational efficiency and reinforced my passion for data-driven problem-solving. In this role, I consistently sought opportunities to enhance workflows beyond the initial request, researching and implementing future-focused solutions that created lasting impact and established strong foundations within an emerging division.</p>
           <p>I am motivated by solving real-world problems, helping people make informed decisions, and enabling opportunities through thoughtful and effective use of data. I find purpose in creating measurable, positive outcomes for both individuals and organizations, and I take pride in building solutions that continue to deliver value long after implementation.</p>
         </div>
+        <div class="info-card">
+          <h2 style="color: #006064;">Education</h2>
+          <div class="edu-item">
+            <img src="images/carleton.jpg" alt="Carleton University Logo" class="edu-logo">
+            <div class="edu-text">
+              <strong>MBA, Financial Management (Remote)</strong>
+              Oct 2025 - Present<br>
+              Carleton University • Ottawa, Ontario
+            </div>
+          </div>
+          <div class="edu-item">
+            <img src="images/seneca.png" alt="Seneca Polytechnic Logo" class="edu-logo">
+            <div class="edu-text">
+              <strong>Post-Graduate Certificate in Business Analytics</strong>
+              Sep 2021 - Apr 2022<br>
+              Seneca Polytechnic College • Markham, Ontario
+            </div>
+          </div>
+          <div class="edu-item">
+            <img src="images/balqa.jpg" alt="Al-Balqa Applied University Logo" class="edu-logo">
+            <div class="edu-text">
+              <strong>Bachelor of Arts in Business Administration</strong>
+              Sep 2010 - Feb 2015<br>
+              Al-Balqa Applied University • Salt, Jordan
+            </div>
+          </div>
+        </div>
       </div>
+      
 
       <div id="projects" class="tab-content">
         <h2 style="color: #006064;">Projects and work samples</h2>
@@ -717,7 +781,6 @@
           <p><strong>Geo-fenced Locations:</strong> Analyzed hundreds of thousands of GPS data points to identify high-density locations and created geo-fenced pick-up points on the app, enhancing customer experience by guiding riders to optimal pick-up spots.</p>
           <p><strong>Performance Project:</strong> Developed a weekly plan addressing peak-hour demand by forming a task force of high-performing drivers and motivating them with targeted in-app messages and incentives.</p>
       </div>
-
       </div>
       
       <div id="skills-mobile" class="tab-content mobile-only-skills">
@@ -943,6 +1006,8 @@
       document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active-content'));
       event.currentTarget.classList.add('active');
       document.getElementById(tabId).classList.add('active-content');
+
+      document.querySelector('.middle').scrollTop = 0;
     }
   </script>
 </body>
